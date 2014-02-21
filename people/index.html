@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+<!-- viewport meta to reset iPhone inital scale -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta property="og:site_name" content="The RIT MAGIC Center" />
+<meta property="og:image" content="http://magic.rit.edu/theme_images/MAGIC_CENTER_LOGO.jpg" />
+<meta property="og:title" content="RIT MAGIC Center" />
+<meta property="og:url" content="http://magic.rit.edu/" />
+
+<title>RIT MAGIC Center | Community</title>
+
+<!-- css3-mediaqueries.js for IE8 or older -->
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="../styles/magic.css" />
+<link rel="stylesheet" type="text/css" href="../styles/nav_menu.css" />
+<link rel="stylesheet" type="text/css" href="../styles/flippers.css" />
+
+<script type="text/javascript">
+	document.doRandomFlips = false;
+	
+	// this function determines whether the event is the equivalent of the microsoft
+	// mouseleave or mouseenter events.
+	function isMouseLeaveOrEnter(e, handler)
+	{		
+		var reltg = e.relatedTarget ? e.relatedTarget : e.type == 'mouseout' ? e.toElement : e.fromElement;
+		while (reltg && reltg != handler) reltg = reltg.parentNode;
+		return (reltg != handler);
+	}
+	//thans to http://www.dynamic-tools.net/toolbox/isMouseLeaveOrEnter/ for this function
+</script>
+<script src="../scripts/castle_creator.js" type="text/javascript"></script>
+<script type="text/javascript" src="../scripts/flipper.js"></script>
+<script type="text/javascript" src="../scripts/animator.js"></script>
+<script type="text/javascript" src="../scripts/particle_manager.js"></script>
+<script src="../scripts/mobile_menu.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<!-- RIT logo -->
+<div id="rit_logo"><a href="http://www.rit.edu/"><img src="../theme_images/rit_logo_bar.png" alt="RIT logo" style="border: 0px; width: 375px; height: 40px;" /></a></div>
+<div id="rit_logo_mobile"><a href="../main/index.html">
+  <img src="../theme_images/magic_logo_for_mobile.png" 
+       style="width: 110px; height: 40px; float: left; border: 0px;" 
+       alt="MAGIC logo"/></a>
+       
+       <div style="float: left; margin-top: 12px;"><h3>@</h3></div>
+       
+       
+       <a href="http://www.rit.edu/">
+  <img src="../theme_images/rit_logo_for_mobile.png" 
+       style="width: 102px; height: 40px; float: right;" 
+       alt="RIT logo"/></a>
+</div>
+
+<!-- RIT institute header, modded for mobile and small magic nav -->
+
+<div id="rit_header">
+	<div id="metanav">
+    <div id="mobile_nav_menu"><a class="nav_text" href="#" onclick="toggle_mobile_menu();"><img style="float: right; padding-left: 5px;" width="40" height="40"  alt="Mobile Navigation Menu" src="../theme_images/menu_bar_icon.png"/></a></div>
+    	<div id="metanav_right"> 
+    <ul>
+      <li id="metaritdirectories">
+        <a href="http://www.rit.edu/directories/">Directories</a>
+      </li>
+    </ul>
+
+    <div id="metaritsearchdiv">
+      <form action="http://www.rit.edu/search/" id="metasearchform" method="get" name="metasearchform">
+        <div class="row collapse">
+          <div class="large-8 columns">
+            <input id="rit_input" maxlength="250" name="q" type="text" />
+          </div>
+
+          <div class="large-1 columns">
+            <em class="foundicon-search" id="rit_search_submit"></em>
+          </div>
+        </div>
+      </form>
+    </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- particle alrea and general hackery -->
+<canvas id="ParticleArea" class="particle_area" width="300" height="550"></canvas>
+<div id="ParticleAreaOld" class="particle_area" style="height: 550px; display: none;">
+        <div id="ParticleFade" style="position: absolute; height: 157px; width:100%; top: 393px; display: none; background-image:url(../theme_images/fade.png); background-repeat: repeat;">
+        </div>
+</div>
+
+<!-- background images (castle and custom artwork) -->
+<div id="background_images" style="width: 100%; height: 900px; overflow: hidden;">
+    <div id="castle" style="top: 51px; background: none; width: auto; 
+    						height: 550px; overflow: hidden;
+                            background-repeat: no-repeat;"><svg id="castle_svg_container">
+	  </svg></div>
+                            
+    <div id="page_art" style="background-image: url(../theme_images/cherry_tree.png); 
+    						height: 654px; width: 603px; left: 120px; overflow: hidden;
+                            background-repeat: no-repeat;"></div>
+</div>
+
+<!-- main page containeer, allows things to extend all over the edges of things) -->
+<div id="pagewrap_abscontainer">
+
+<!-- aesthetic nav bar, real nav is in the main header -->
+<div id="nav_header"></div>
+
+<!-- actual page -->
+<div id="pagewrap">
+	<!-- navigation bar -->
+	<div id="header">
+      <script type="text/javascript" src="../scripts/nav_menu.js"></script>
+    </div>
+    
+    <div id="main_content_area">
+     
+	 <div id="content">
+       <div class="full_row_clear">
+       <h3>MAGIC Community</h3>
+       </div>
+       <div class="full_row">
+       <p>The creative community of the MAGIC Center is the heart and soul of our research and development capability, with contributions and interactions from makers and thinkers of many backgrounds and varieties.  Our social fabric is combined of four major elements:</p>
+       
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-top: 10px; margin-right: -2px; background: none; margin-left: -5px; height: auto;">
+       		<img src="images/magic_puzzle_pieces.png" style="width: 100%; height: auto;" alt="diagram of magic elements" />
+       </div>
+       <div class="outer_right_column2" style="margin-left: 0px; margin-top: 10px; margin-right: 7px; height: auto; margin-left: -7px;">
+       	<div class="inner_right_column3" style="height: auto; background: none;">
+        	<ul style="margin-top: 0px; padding-top: 0px;"><li class="site_text" style="padding-bottom: 5px;"><h4><a href="#faculty_affiliates"><b>Faculty Affiliates</b></a></h4> (those faculty from throughout the university that have <a href="faculty_affiliation.html">affiliated with the center</a>)</li>
+       <li class="site_text" style="padding-bottom: 5px;"><h4><a href="#partners"><b>Partners</b></a></h4> (individuals, organizations, programs or groups that we work with beyond the campus)</li> 
+       <li class="site_text" style="padding-bottom: 5px;"><h4><a href="#initiatives"><b>Initiatives</b></a></h4> (broad themes that help drive individual projects and investigations)</li>
+       <li class="site_text" style="padding-bottom: 5px;"><h4><a href="#students"><b>Students</b></a></h4> (who are the core of any enterprise at RIT, and who are working on these and many other projects as they pursue their education and research objectives)</li></ul>
+            
+        </div>
+       </div>
+       <div style="clear: both; margin-top: -20px;">
+       <p>Together, these elements form a rich tapestry of collaboration and multi-disciplinary exploration that is unique to the MAGIC Center, and that flows across the <b style="color: #fff">MAGIC Laboratory</b> and <b style="color: #fff">MAGIC Spell Studios</b> divisions.  That said, not every project, collaboration, or activity will neatly fit into any of these boxes, and above all there is a very healthy dose of creative chaos that permeates everything we do.</p></div>
+       </div>
+		
+        <div id="initiatives">
+         <div class="full_row_clear" style="margin-bottom: 0px; margin-top: 20px;">
+       <h3>Center Initiatives</h3>
+       </div>
+       
+        <div class="full_row" style="min-height: 175px;"><img src="initiatives/lab_for_social_computing.jpg" style="float: left; width: 25%; height: auto; min-width: 175px; margin-right: 10px;" alt="LSC_logo_pic" /><h4>The Lab for Social Computing @ MAGIC</h4><p>The <a href="http://www.labforsocialcomputing.net/" target="top">Lab for Social Computing</a> serves as an organizing unit for faculty across multiple colleges and disciplines to work together on research and development projects related to a wide range of social technologies. Outside of RIT, LSC faculty regularly speak at conferences on social computing topics, raising the visibility of RIT as an important player in social computing R&amp;D, with several recent and past projects of note. The lab is directed by Dr. Elizabeth Lawley, Professor in the School of Interactive Games & Media and a faculty affiliate of MAGIC.<br/><br/>
+
+The LSC also sponsors talks on campus by well-known authors and scholars in the field of social computing: recent speakers included Kevin Slavin, Thomas Malaby, Julian Dibbell, David Weinberger, and Kathleen Fitzpatrick. In addition, personnel from the LSC help organize the Microsoft Research Social Computing Symposium in collaboration with Microsoft Research FUSE Labs.
+</p>
+        </div>
+       
+        <div class="full_row" style="position: relative; min-height: 225px; max-height: 225px; overflow: hidden;"><img src="initiatives/foss_initiative.jpg" style="float: left; width: 20%; height: auto; min-width: 175px; margin-right: 10px;" alt="foss_logo_pic" /><h4>FOSS@MAGIC</h4><p>One of the most unique initiatives at MAGIC is the <a href="../foss/index.html">FOSS@MAGIC</a> effort, an initiative that originally grew out of the Department of Interactive Games and Media's course in educational game development for the OLPC. Today, <a href="../foss/index.html">FOSS@MAGIC</a> sponsors numerous projects, hackathons, regional get-togethers, birds-of-a-feather gatherings, and events throughout the year in connection with the MAGIC Center, the Golisano College of Computing & Information Sciences, RIT, and external partners. Since 2009, this group has brought FOSS speakers to campus, sponsored professional development opportunities for faculty, housed externally sponsored and faculty and student created research and development projects and has brought an annual regional FOSS conference to the RIT campus on several occasions. Known throughout the region, this group is an active and vibrant part of the Rochester open source movement, and is engaged with a variety of institutions throughout the region and the nation. 
+</p>
+
+<div class="read_more_large_fade" style="top: 201px;">
+                	<img src="../theme_images/fade_up.png" style="width: 100%; height: 17px;" alt="up_fade" />
+                </div>
+                <div class="read_more_large" style="top: 218px; height: 17px; overflow: hidden;">
+                 <a href="../foss/index.html"><img src="../theme_images/blue_arrow.png" style="width: 17px; height: 17px; float: right; padding-right: 2px; padding-top: 0px; margin-top: -1px;" alt="read_more_arrow">
+                <div class="read_more_large_text" style="position: relative; top: 1px;">
+                  <p class="read_more_text">Read More</p>
+                </div></a>
+                </div>
+        
+        </div>
+
+        <div class="full_row" style="min-height: 175px;"><img src="initiatives/mobile_zone.jpg" style="float: left; width: 20%; height: auto; min-width: 175px; margin-right: 10px;" alt="mobile_zone_logo_pic" /><h4>The Mobile Zone @ MAGIC</h4><p>The Mobile Zone at MAGIC supplies mentorship, technical challenges and support for faculty and student projects centered around mobile phone and tablet technologies. The mobile zone is sponsored by a gift from Storm Frog, Inc. who generously places their own staff into the lab to mentor the RIT community.</p>
+        </div>
+       
+        <div class="full_row" style="min-height: 225px; max-height: 225px; overflow: hidden; position: relative;"><img src="initiatives/mgti.jpg" style="float: left; width: 20%; height: auto; min-width: 175px; margin-right: 10px;" alt="mgti_logo_pic" /><h4>The Museum Games &amp; Technology Initiative</h4><p><a href="../projects/mgti.html" target="top">MGTI @ MAGIC</a> represents a broad focus that explores the way in which digital and interactive media resituate the interactions between the public and the museum.  The purpose of the initiative is to develop games to support museum collections and exhibits, media to engage participants with specific pieces or collections, and experiences that reframe the exploration of collections and historical artifacts.  The eventual goal of our research is to develop a general model and reusable framework for games and media that will improve the accessibility, experience and public profile of museum collections.  Projects are generally developed in conjunction with a museum partner (or partners) and include game and media design, supporting material design and assessment standards.  Such projects are the first installment of a much larger research initiative that will evolve by individual development of component blocks. 
+<br/><br/>Projects connected to the initiative have ranged in topic and specific methodology, but are generally exploring ways to: 1.) convince non-visitors to visit through interaction(s) with online tools; 2.) create game experiences within the museums to change the way that visitors interact with the museum collection; and 3.) improve visitor understanding of museum collections via digitally augmented experieces.</p>
+        
+        <div>
+        <div class="read_more_large_fade" style="top: 201px;">
+                	<img src="../theme_images/fade_up.png" style="width: 100%; height: 17px;" alt="up_fade" />
+                </div>
+                <div class="read_more_large" style="top: 218px; height: 17px; overflow: hidden;">
+                 <a href="../projects/mgti.html"><img src="../theme_images/blue_arrow.png" style="width: 17px; height: 17px; float: right; padding-right: 2px; padding-top: 0px; margin-top: -1px;" alt="read_more_arrow">
+                <div class="read_more_large_text" style="position: relative; top: 1px;">
+                  <p class="read_more_text">Read More</p>
+                </div></a>
+                </div>
+        </div>
+        
+        </div>
+       
+        <div class="full_row" style="min-height: 175px;" id="gamesandlearning"><img src="initiatives/games_and_learning.jpg" style="float: left; width: 20%; height: auto; min-width: 175px; margin-right: 10px;" alt="games_and_learning_logo_pic" /><h4>Games &amp; Learning at the MAGIC Center</h4><p>RIT, the School of Interactive Games & Media, and collaborators across the MAGIC Center have a long history of exploring the creation, use, and deployment of games in classrooms and informal learning settings to understand both the learning process and to impact a large number of fields.  From the early days of projects like M.U.P.P.E.T.S. that explored how we teach our own undergraduates to code and communicate in digital environments, to games such as Layoff! (a collaboration with the Tiltfactor Lab and part of the Values at Play initiative) that challenge the public on uncomfortable issues surrounding economic collapse, RIT has supported our work in exploring the ways in which games and media can impact the learning process.<br/><br/>  
+
+Recently, MAGIC has partnered with Second Ave. Software on several Department of Education grants that create games for middle school Science education (Martha Madison's Marvelous Machines being one such example), has continued to engage with the Games 4 Learning Institute, the Games+Learning+Society Center at the University of Wisconsin-Madison, and several other partners and agencies as we continue to push the boundary of how games and digital media can impact learning and engagement.<br/><br/>
+
+Closer to home, we have been heavily involved in the creation of the Just Press Play project, which seeks to use game elements and playful learning theory to better equip students in the transition to campus life and academic exploration in a whimsical, yet meaningful way.  You can read more about these individual projects, their impact, and related work on the individual pages for these works, and if you have an idea or concept for a game or simulation that impact the learning process, don't hesitate to contact us!
+</p>
+        </div>
+         </div>
+        
+        <div id="faculty_affiliates" class="full_row_clear" style="margin-bottom: 0px; margin-top: 20px;">
+       <h3>Faculty Affiliates</h3>
+       </div>
+       
+    <div class="fixed_left_column" style="overflow: 
+                                   hidden; margin-left: 0px;
+                                   padding: 0px;
+                                   height: auto;
+                                   margin-bottom: 0px;
+                                   background: none;
+                                   ">
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/adam_smoth.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Adam Smith</h5><p style="font-size: 10px;">Assoc. Prof. &amp; Program Chair<br/>School of Design, CIAS<br/><a href="http://cias.rit.edu/faculty-staff/158" target="top">Faculty Website</a><br/><a href="http://cias.rit.edu/schools/design/undergraduate-new-media-design-imaging" target="top">New Media Design Website</a></p>
+       </div></div>
+       
+              <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px; width: 100%;">
+    <img src="affiliates/adrienne_decker.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Adrienne Decker</h5><p style="font-size: 10px;">Assistant Professor<br/>School of Interactive Games &amp; Media, GCCIS</p>
+       </div></div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px; width: 100%;">
+    <img src="affiliates/al_biles.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Al Biles</h5><p style="font-size: 10px;">Professor<br/>School of Interactive Games &amp; Media, GCCIS<br/><a href="http://igm.rit.edu/~jabics/" target="top">Faculty Website</a></p>
+       </div></div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/amit_ray.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Amit Ray</h5><p style="font-size: 10px;">Associate Professor<br/>Department of English, COLA<br/><a href="http://www.rit.edu/cla/english/amit-ray" target="top">Faculty Website</a></p>
+       </div></div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/egert_chris.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Christopher Egert</h5><p style="font-size: 10px;">Associate Director<br/> RIT MAGIC Center<br/>Associate Professor, School of Interactive Games &amp; Media, GCCIS<br/><a href="http://igm.rit.edu/~cae/" target="top">Faculty Website</a></p>
+       </div></div>
+       
+        <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/chris_cascioli.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Chris Cascioli</h5><p style="font-size: 10px;">Lecturer<br/>School of Interactive Games &amp; Media, GCCIS<br/><a href="http://what-ev.net/" target="top">Professional Website</a></p>
+       </div></div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/david_simkins.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>David Simkins</h5><p style="font-size: 10px;">Assistant Professor<br/>School of Interactive Games &amp; Media, GCCIS</p></div>
+       </div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/david_schwartz.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>David Schwartz</h5><p style="font-size: 10px;">Assoc. Prof. & Undergraduate Program Coordinator<br/>School of Interactive Games &amp; Media, GCCIS<br/><a href="http://igm.rit.edu/~dis/" target="top">Faculty Website</a><br/><a href="http://igm.rit.edu" target="top">IGM Program Website</a></p></div>
+       </div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/elizabeth_goins.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Elizabeth Goins</h5><p style="font-size: 10px;">Associate Professor<br/>Dept. of Performing Arts <br/>&amp; Visual Culture, COLA</p></div>
+       </div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/oyzon_elouise.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Elouise Oyzon</h5><p style="font-size: 10px;">Associate Professor<br/>School of Interactive Games &amp; Media, GCCIS</p></div>
+       </div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/evan_selinger.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Evan Selinger</h5><p style="font-size: 10px;">MAGIC Center Head of Research Communications, Community and Ethics<br/>Associate Professor, Dept. of Philosophy, COLA<br/><a href="http://eselinger.org/ " target="top">Professional Website</a></p></div>
+       </div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/gordon_goodman.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Gordon Goodman</h5><p style="font-size: 10px;">Professor<br/>School of Interactive Games &amp; Media, GCCIS</p></div>
+       </div>
+       
+        <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/jason_arena.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Jason Arena</h5><p style="font-size: 10px;">Associate Professor<br/>School of Design, CIAS<br/>CEO, Workinman Interactive<br/><a href="http://workinman.com" target="top">Workinman Website</a></p>
+       </div></div>
+       
+      <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/jay_alan_jackson.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Jay Alan Jackson</h5><p style="font-size: 10px;">Associate Professor<br/>School of Interactive Games &amp; Media, GCCIS<br/><a href="http://impulsivepillowpilates.blogspot.com/ " target="top">Research Blog</a></p></div>
+       </div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="affiliates/jessica_lieberman.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Jessica Lieberman</h5><p style="font-size: 10px;">Assistant Professor<br/>Depts. of Performing Arts &amp; Visual Culture, &amp; Photography, COLA<br/></p></div>
+       </div>
+       
+    </div>
+    
+    <!-- second column -->
+    <div class="outer_right_column">
+      <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/jessica_bayliss.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Jessica Bayliss</h5><p style="font-size: 10px;">Associate Professor<br/> &amp; Graduate Coordinator<br/>School of Interactive Games &amp; Media, GCCIS<br/><a href="http://igm.rit.edu/" target="top">IGM Program Website</a></p></div>
+        </div>
+        
+         <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/joe_pietruch.png" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Joe Pietruch</h5><p style="font-size: 10px;">Lecturer<br/>School of Interactive Games &amp; Media, GCCIS<br/><a href="http://igm.rit.edu/" target="top">IGM Program Website</a></p></div>
+        </div>
+        
+        <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/joe_giegel.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Joe Geigel</h5><p style="font-size: 10px;">Associate Professor<br/>Department of Computer Science, GCCIS<br/><a href="http://www.cs.rit.edu/~jmg/" target="top">Faculty Website</a></p></div>
+        </div>
+        
+                <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/jon_schull.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Jon Schull</h5><p style="font-size: 10px;">Research Scientist<br/>RIT MAGIC Center<br/><a href="http://rit.academia.edu/JonSchull/" target="top">Faculty Website</a></p></div>
+        </div>
+        
+        <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/kelly_norris_martin.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Kelly Norris Martin</h5><p style="font-size: 10px;">Assistant Professor<br/>Dept. of Communications, COLA</p></div>
+        </div>
+        
+            <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px; clear: both;">
+        <img src="affiliates/elizabeth_lawley.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Elizabeth Lawley</h5><p style="font-size: 10px;">Professor<br/>School of Interactive Games &amp; Media<br/>Director, Lab for Social Computing @ MAGIC<br/><a href="http://lawley.rit.edu/" target="top">Faculty Website</a> | <a href="http://labforsocialcomputing.net" target="top">LSC Website</a></p></div>
+        </div>
+        
+        <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/mike_johansson.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Mike Johansson</h5><p style="font-size: 10px;">Lecturer<br/>Dept. of Communications, COLA<br/><a href="http://www.rit.edu/cla/communication/faculty-staff/mike-johansson" target="top">Faculty Website</a></p></div>
+        </div>
+        
+           <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/nancy_doubleday.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Nancy Doubleday</h5><p style="font-size: 10px;">Associate Professor<br/>School of Interactive Games &amp; Media, GCCIS</p></div>
+        </div>
+        
+           <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/ron_vullo.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Ron Vullo</h5><p style="font-size: 10px;">Associate Professor<br/>Department of Information Sciences &amp; Technologies, GCCIS<br/><a href="http://www.ist.rit.edu/~rpv/" target="top">Faculty Website</a></p></div>
+        </div>
+        
+            <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/sebastian_deterding.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Sebastian Deterding</h5><p style="font-size: 10px;">Visiting Professor, School of Interactive Games &amp; Media, GCCIS<br/>Visiting Researcher, RIT MAGIC Center<br/><a href="http://codingconduct.cc/" target="top">Professional Website</a></p></div>
+        </div>
+        
+               <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/shaun_foster.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Shaun Foster</h5><p style="font-size: 10px;">Assistant Professor<br/>School of Design, CIAS<br/><a href="http://cias.rit.edu/faculty-staff/146 " target="top">Faculty Website</a></p></div>
+        </div>
+        
+         <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/stephen_jacobs.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Stephen Jacobs</h5><p style="font-size: 10px;">Associate Director, RIT MAGIC Center<br/>Professor, School of Interactive Games &amp; Media, GCCIS</p></div>
+        </div>
+        
+            <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/steve_kurtz.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Steve Kurtz</h5><p style="font-size: 10px;">Professor, School of Interactive Games &amp; Media, GCCIS</p></div>
+        </div>
+        
+        <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/steven_gold.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Steven Gold</h5><p style="font-size: 10px;">Professor of Economics<br/>Saunders College of Business</p></div>
+        </div>
+        
+        <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="affiliates/w_michelle_harris.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>W. Michelle Harris</h5><p style="font-size: 10px;">Associate Professor<br/>School of Interactive Games &amp; Media, GCCIS<br/><a href="http://people.rit.edu/wmhics/" target="top">Faculty Website</a></p></div>
+        </div>
+        
+    </div>
+    <div id="students" class="full_row_clear" style="margin-bottom: 0px; margin-top: 20px;">
+    <h3>Students</h3>
+    </div>
+    
+    <div class="fixed_left_column" style="overflow: 
+                                   hidden; margin-left: 0px;
+                                   padding: 0px;
+                                   height: auto;
+                                   margin-bottom: 0px;
+                                   background: none;
+                                   ">
+                                   
+       <!-- student left column -->
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="students/blake_gross.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Blake Gross</h5><p style="font-size: 10px;"></p>
+       </div></div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="students/brandon_littell.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Brandon Littell</h5><p style="font-size: 10px;"></p>
+       </div></div>
+       
+      <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="students/colden_cullen.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Colden Cullen</h5><p style="font-size: 10px;"></p>
+       </div></div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="students/daniel_jost.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Daniel Jost</h5><p style="font-size: 10px;"></p>
+       </div></div>
+       
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="students/danny_shumway.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Danny Shumway</h5><p style="font-size: 10px;"></p>
+         </div></div>
+         
+          <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="students/jacob_burdecki.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Jacob Burdecki</h5><p style="font-size: 10px;"></p>
+         </div></div>   
+         
+       <div class="left_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+       <img src="students/jonathan_bowman.png" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Jonathan Bowman</h5><p style="font-size: 10px;"></p>
+       
+       </div></div>
+       
+        <!-- end left column -->
+       </div>
+    
+      <!-- student right column -->
+      <div class="outer_right_column">
+      <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="students/justin_hoover.png" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Justin Hoover</h5><p style="font-size: 10px;"></p></div></div>
+        
+        <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="students/katie_pustolski.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Katie Pustolski</h5><p style="font-size: 10px;"></p></div></div>
+        
+        <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="students/katie_tigue.png" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Katie Tigue</h5><p style="font-size: 10px;">AKA "Giggles"</p></div></div>
+        
+        <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="students/sara_armstrong.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Sara Armstrong</h5><p style="font-size: 10px;"></p></div></div>
+        
+        <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="students/sean_brennan.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Sean Brennan</h5><p style="font-size: 10px;"></p></div></div>
+        
+        <div class="right_tile" style="height: auto; width: 100%; margin-bottom: 0px;">
+        <img src="students/timothy_reynolds.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Timothy Reynolds</h5><p style="font-size: 10px;"></p></div></div>
+        
+        </div>
+      <!-- end right column -->
+    
+    
+    <div class="full_row_clear"><p><br/></p></div>
+        
+     <!-- end content -->
+	 </div>
+
+	 <div id="sidebar">
+     <div id="partners"></div>
+		<div class="full_row_clear" style="margin-top: 10px; padding-bottom: 0px;">
+        <h3>Partners</h3>
+        </div>
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none; margin-top: -5px;">
+         <div class="partner_tile"><img src="partners/1stplayable.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>1st Playable Productions</h4>
+         <p style="font-size: 10px;"><a href="http://www.1stplayable.com/‎" target="top">www.1stplayable.com/‎</a></p>
+        </div></div></div>
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/adobe.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>Adobe</h4>
+         <p style="font-size: 10px;"><a href="http://www.adobe.com/‎" target="top">www.adobe.com/‎</a></p>
+        </div></div></div>
+       
+       <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/darkwind_media.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>Darkwind Media</h4>
+         <p style="font-size: 10px;"><a href="http://www.darkwind.com/‎" target="top">www.darkwind.com/‎</a></p>
+        </div></div></div>
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/gls.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>Games + Learning + Society</h4>
+         <p style="font-size: 10px;">The Games + Learning + Society Center <br/>University of Wisconsin-Madison<br/><a href="http://www.gameslearningsociety.org" target="top">www.gameslearningsociety.org/‎</a></p>
+        </div></div></div>
+        
+         <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/g4li.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>Games 4 Learning Institute</h4>
+         <p style="font-size: 10px;"><a href="http://www.g4li.org" target="top">www.g4li.org</a></p>
+        </div></div></div>
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/icheg.png" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>International Center for the History of Electronic Games at The Strong</h4>
+         <p style="font-size: 10px;"><a href="http://www.icheg.org" target="top">www.icheg.org‎</a></p>
+        </div></div></div>
+        
+             <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/metadatagames.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>METADATAGAMES</h4>
+         <p style="font-size: 10px;"><a href="http://www.metadatagames.com" target="top">www.metadatagames.com‎</a></p>
+        </div></div></div> 
+        
+            <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/msr.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>Microsoft Research Connections</h4>
+         <p style="font-size: 10px;"><a href="http://research.microsofot.com" target="top">research.microsoft.com‎</a></p>
+        </div></div></div> 
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/games_for_impact.png" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>National Consortium on Games for Impact</h4>
+        </div></div></div> 
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/nmc.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>New Media Consortium</h4>
+         <p style="font-size: 10px;"><a href="http://www.nmc.org" target="top">www.nmc.org‎</a></p>
+        </div></div></div> 
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/red_hat.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>Red Hat</h4>
+         <p style="font-size: 10px;"><a href="http://www.redhat.com" target="top">www.redhat.com‎</a></p>
+        </div></div></div>
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/ili.png" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>RIT Innovative Learning Institute</h4>
+         <p style="font-size: 10px;"><a href="http://www.rit.edu/ili " target="top">www.rit.edu/ili‎</a></p>
+        </div></div></div> 
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/igm.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>RIT School of Interactive Games &amp; Media</h4>
+         <p style="font-size: 10px;"><a href="http://igm.rit.edu " target="top">igm.rit.edu</a></p>
+        </div></div></div>
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/second_avenue.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>Second Avenue Learning</h4>
+         <p style="font-size: 10px;"><a href="http://secondavenuelearning.com/" target="top">www.secondavenuelearning.com</a></p>
+        </div></div></div>
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/simone_center.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>Simone Center for Student Innovation &amp; Entrepreneurship</h4>
+         <p style="font-size: 10px;"><a href="http://simonecenter.rit.edu/" target="top">simonecenter.rit.edu</a></p>
+        </div></div></div>
+        
+         <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/solu.jpg" class="thumbnail2" alt="partner_logo"/>
+         <div class="thumbtile_right"><h4>Solu Technology</h4>
+        </div></div></div>
+        
+         <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/stormfrog.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>StormFrog</h4>
+         <p style="font-size: 10px;"><a href="http://www.stormfrog.com/" target="top">www.stormfrog.com</a></p>
+        </div></div></div>
+        
+         <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/tiltfactor.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>Tiltfactor</h4>
+         <p style="font-size: 10px;"><a href="http://www.tiltfactor.org/" target="top">www.tiltfactor.org</a></p>
+        </div></div></div>
+        
+        <div class="sidebar_fill" style="height: auto; clear: both; margin-left: 0px; background: none;">
+         <div class="partner_tile"><img src="partners/values_at_play.jpg" class="thumbnail2" alt="partner_logo" />
+         <div class="thumbtile_right"><h4>Values at Play</h4>
+         <p style="font-size: 10px;"><a href="http://www.valuesatplay.org/" target="top">www.valuesatplay.org</a></p>
+        </div></div></div>
+	<!-- end sidebar -->
+       <div class="full_row_clear"><br/></div>
+	 </div>
+	
+	 <div id="footer">
+      &nbsp;
+	 </div>
+    </div>
+</div>
+
+  <!-- footer and legalese -->
+<div id="magic_footer">
+	<script type="text/javascript" src="../scripts/footer.js"></script>
+</div>
+</div>
+
+</body>
+</html>

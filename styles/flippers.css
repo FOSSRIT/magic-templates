@@ -1,0 +1,302 @@
+@charset "utf-8";
+/* CSS Document */
+.flip {
+    position: relative;
+    z-index: 11;
+  	perspective: 1500px;
+	-webkit-perspective: 1500px;
+	-moz-perspective: 1500;
+	
+    /*transform-style: preserve-3d;*/
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	
+	/*
+	-webkit-transition: opacity 1s ease-in-out;
+ 	-moz-transition: opacity 1s ease-in-out;
+  	-o-transition: opacity 1s ease-in-out;
+  	transition: opacity 1s ease-in-out; */
+
+}
+
+.flip .front, .flip .back {
+	
+    background: #333;
+    display: block;
+    position: absolute;
+    color: #fff;
+	width: 90px; 
+    height: 90px;
+		
+	border: 1px solid;
+	border-color: #666;
+	
+    /* transition: transform 1s ease-in-out; */
+	-o-transition: all .4s ease-in-out;
+	-ms-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	/* transition: all .1s ease-in-out; */
+	
+	
+}
+.flip .front {
+    transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg);
+	
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	
+    z-index: 13;
+}
+
+.flip .back {
+    transform: rotateX(-180deg);
+	-webkit-transform: rotateX(-180deg);
+	-moz-transform: rotateX(-180deg);
+	
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	
+    z-index: 12;
+	background: rgba(0,0,0,0);
+	opacity: 0;
+}
+
+.bigflip {
+    position: relative;
+    z-index: 11;
+  	perspective: 1500px;
+	-webkit-perspective: 1500px;
+	-moz-perspective: 1500;
+	
+    /*transform-style: preserve-3d;*/
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+}
+
+.bigflip .front, .bigflip .back {
+	
+    background: #333;
+    display: block;
+    position: absolute;
+    color: #fff;
+	width: 180px; 
+    height: 180px;
+		
+	border: 1px solid;
+	border-color: #666;
+	
+    /* transition: transform 1s ease-in-out; */
+	-o-transition: all .4s ease-in-out;
+	-ms-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	/* transition: all .1s ease-in-out; */
+}
+.bigflip .front {
+    transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg);
+	
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	
+    z-index: 13;
+}
+
+.bigflip .back {
+    transform: rotateX(-180deg);
+	-webkit-transform: rotateX(-180deg);
+	-moz-transform: rotateX(-180deg);
+	
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	
+    z-index: 12;
+    background: rgba(0,0,0,0);
+}
+
+.wideflip {
+    position: relative;
+    z-index: 11;
+  	perspective: 1500px;
+	-webkit-perspective: 1500px;
+	-moz-perspective: 1500;
+	
+    /*transform-style: preserve-3d;*/
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+}
+
+.wideflip .front, .wideflip .back {
+	
+    background: #333;
+    display: block;
+    position: absolute;
+    color: #fff;
+	width: 180px; 
+    height: 90px;
+		
+	border: 1px solid;
+	border-color: #666;
+	
+    /* transition: transform 1s ease-in-out; */
+	-o-transition: all .4s ease-in-out;
+	-ms-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	/* transition: all .1s ease-in-out; */
+}
+.wideflip .front {
+    transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg);
+	
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	
+    z-index: 13;
+}
+
+.wideflip .back {
+    transform: rotateX(-180deg);
+	-webkit-transform: rotateX(-180deg);
+	-moz-transform: rotateX(-180deg);
+	
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	
+    z-index: 12;
+    background: rgba(0,0,0,0);
+}
+
+.tallflip {
+    position: relative;
+    z-index: 11;
+  	perspective: 1500px;
+	-webkit-perspective: 1500px;
+	-moz-perspective: 1500;
+	
+    /*transform-style: preserve-3d;*/
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+}
+
+.tallflip .front, .tallflip .back {
+	
+    background: #333;
+    display: block;
+    position: absolute;
+    color: #fff;
+	width: 90px; 
+    height: 180px;
+		
+	border: 1px solid;
+	border-color: #666;
+	
+    /* transition: transform 1s ease-in-out; */
+	-o-transition: all .4s ease-in-out;
+	-ms-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	/* transition: all .1s ease-in-out; */
+}
+.tallflip .front {
+    transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg);
+	
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	
+    z-index: 13;
+}
+
+.tallflip .back {
+    transform: rotateX(-180deg);
+	-webkit-transform: rotateX(-180deg);
+	-moz-transform: rotateX(-180deg);
+	
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	
+    z-index: 12;
+    background: rgba(0,0,0,0);
+}
+
+.wedgeflip {
+    position: relative;
+    z-index: 11;
+  	perspective: 1500px;
+	-webkit-perspective: 1500px;
+	-moz-perspective: 1500;
+	
+    /*transform-style: preserve-3d;*/
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+}
+
+.wedgeflip .front, .wedgeflip .back {
+	
+    background: #333;
+    display: block;
+    position: absolute;
+    color: #fff;
+	width: 89px; 
+    height: 90px;
+		
+	border: 1px solid;
+	border-color: #666;
+	
+    /* transition: transform 1s ease-in-out; */
+	-o-transition: all .4s ease-in-out;
+	-ms-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	/* transition: all .1s ease-in-out; */
+}
+.wedgeflip .front {
+    transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg);
+	
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	
+    z-index: 13;
+}
+
+.wedgeflip .back {
+    transform: rotateX(-180deg);
+	-webkit-transform: rotateX(-180deg);
+	-moz-transform: rotateX(-180deg);
+	
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	
+    z-index: 12;
+    background: rgba(0,0,0,0);
+}
+

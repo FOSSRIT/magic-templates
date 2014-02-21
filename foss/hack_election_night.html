@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+<!-- viewport meta to reset iPhone inital scale -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta property="og:site_name" content="The RIT MAGIC Center" />
+<meta property="og:image" content="http://magic.rit.edu/theme_images/MAGIC_CENTER_LOGO.jpg" />
+<meta property="og:title" content="RIT MAGIC Center" />
+<meta property="og:url" content="http://magic.rit.edu/" />
+
+<title>RIT MAGIC Center Projects | FOSS | Hacking Election Night</title>
+
+<!-- css3-mediaqueries.js for IE8 or older -->
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="../styles/magic.css" />
+<link rel="stylesheet" type="text/css" href="../styles/nav_menu.css" />
+<link rel="stylesheet" type="text/css" href="../styles/flippers.css" />
+
+<script type="text/javascript">
+	document.doRandomFlips = false;
+	
+	// this function determines whether the event is the equivalent of the microsoft
+	// mouseleave or mouseenter events.
+	function isMouseLeaveOrEnter(e, handler)
+	{		
+		var reltg = e.relatedTarget ? e.relatedTarget : e.type == 'mouseout' ? e.toElement : e.fromElement;
+		while (reltg && reltg != handler) reltg = reltg.parentNode;
+		return (reltg != handler);
+	}
+	//thans to http://www.dynamic-tools.net/toolbox/isMouseLeaveOrEnter/ for this function
+</script>
+<script src="../scripts/castle_creator.js" type="text/javascript"></script>
+<script type="text/javascript" src="../scripts/flipper.js"></script>
+<script type="text/javascript" src="../scripts/animator.js"></script>
+<script type="text/javascript" src="../scripts/particle_manager.js"></script>
+<script src="../scripts/mobile_menu.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<!-- RIT logo -->
+<div id="rit_logo"><a href="http://www.rit.edu/"><img src="../theme_images/rit_logo_bar.png" alt="RIT logo" style="border: 0px; width: 375px; height: 40px;" /></a></div>
+<div id="rit_logo_mobile"><a href="../main/index.html">
+  <img src="../theme_images/magic_logo_for_mobile.png" 
+       style="width: 110px; height: 40px; float: left; border: 0px;" 
+       alt="MAGIC logo"/></a>
+       
+       <div style="float: left; margin-top: 12px;"><h3>@</h3></div>
+       
+       
+       <a href="http://www.rit.edu/">
+  <img src="../theme_images/rit_logo_for_mobile.png" 
+       style="width: 102px; height: 40px; float: right;" 
+       alt="RIT logo"/></a>
+</div>
+
+<!-- RIT institute header, modded for mobile and small magic nav -->
+
+<div id="rit_header">
+	<div id="metanav">
+    <div id="mobile_nav_menu"><a class="nav_text" href="#" onclick="toggle_mobile_menu();"><img style="float: right; padding-left: 5px;" width="40" height="40"  alt="Mobile Navigation Menu" src="../theme_images/menu_bar_icon.png"/></a></div>
+    	<div id="metanav_right"> 
+    <ul>
+      <li id="metaritdirectories">
+        <a href="http://www.rit.edu/directories/">Directories</a>
+      </li>
+    </ul>
+
+    <div id="metaritsearchdiv">
+      <form action="http://www.rit.edu/search/" id="metasearchform" method="get" name="metasearchform">
+        <div class="row collapse">
+          <div class="large-8 columns">
+            <input id="rit_input" maxlength="250" name="q" type="text" />
+          </div>
+
+          <div class="large-1 columns">
+            <em class="foundicon-search" id="rit_search_submit"></em>
+          </div>
+        </div>
+      </form>
+    </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- particle alrea and general hackery -->
+<canvas id="ParticleArea" class="particle_area" width="300" height="550"></canvas>
+<div id="ParticleAreaOld" class="particle_area" style="height: 550px; display: none;">
+        <div id="ParticleFade" style="position: absolute; height: 157px; width:100%; top: 393px; display: none; background-image:url(../theme_images/fade.png); background-repeat: repeat;">
+        </div>
+</div>
+
+<!-- background images (castle and custom artwork) -->
+<div id="background_images" style="width: 100%; height: 900px; overflow: hidden;">
+    <div id="castle" style="top: 51px; background: none; width: auto; 
+    						height: 550px; overflow: hidden;
+                            background-repeat: no-repeat;"><svg id="castle_svg_container">
+	  </svg></div>
+                            
+    <div id="page_art" style="background-image: url(../theme_images/elf.png); 
+    						height: 800px; width: 482px; left: 107px; overflow: hidden;
+                            background-repeat: no-repeat;"></div>
+</div>
+
+<!-- main page containeer, allows things to extend all over the edges of things) -->
+<div id="pagewrap_abscontainer">
+
+<!-- aesthetic nav bar, real nav is in the main header -->
+<div id="nav_header"></div>
+
+<!-- actual page -->
+<div id="pagewrap">
+	<!-- navigation bar -->
+	<div id="header">
+      <script type="text/javascript" src="../scripts/nav_menu.js"></script>
+    </div>
+    
+    <div id="main_content_area">
+     
+	 <div id="content">
+       <div class="full_row_clear" style="margin-bottom: 0px;">
+       <h3>FOSS@MAGIC Featured Project: Hacking Election Night</h3>
+       </div> 
+       <div class="full_row" style="margin-bottom: 0px;"><p>
+       Typically, politics on your average college campus looks alot like a Mock Debate where the Blues, Reds, and Greens all get up on stage and trash-talk each others' candidates like Mike Tyson at weigh-ins before stepping into Madison Square Garden.  Election night here in the innovation center was not your typical college politics event. The atmosphere looked more like NASA mission control and CSPAN had a 40 foot wide HD love child. Such is the fun of our <a href="../facilities/index.html#immersion">focus on media immersion</a>.<br/><br/>
+
+<img src="projects/night_of_the_election.jpg" style="width: 100%; height: auto; border: solid #333333 1px;" />
+
+Professor Sean Sutton, Chair of RIT's <a href="http://www.rit.edu/cla/politicalscience/" target="top">Political Science Department</a>, and one of this author's personal mentors, wanted to do a live blogging event on election night with his students. Andrea Hickerson, Professor of the <a href="http://www.rit.edu/cla/communication/" target="top">Department of
+ Communication</a> Special Reporting in Politics Course, also wanted her students to be neck deep in the races leading up to and including election night. Political Science Professor and Lincoln Scholar Joe Fornieri too, wanted his students to have an outlet for their political interest on the big night as well, so between these 3 professors and the Center for Student Innovation, we put together one big election night event to provide political science and journalism students the opportunity to positively participate in the common goal of observing, analyzing, and commentating upon the Election and the processes of politics.<br/><br/>
+ Once the event was established, we began reaching out to our local media outlets with the help of <a href="http://rit.edu/news" target="top">RIT's University News Services</a>, and in particular John Follaco. At the same time, friend of FOSS@MAGIC and Local Public Radio &amp; News Personality Rachel Ward of Rochester's <a href="http://npr.org/" target="top">NPR</a> Affiliate <a href="http://wxxi.org/" target="top">WXXI</a>, was invited to give a guest lecture in Andrea's Journalism Course. Rachel and Zack Seward met with our Programmer/Journalists, and were invited to participate in our election day coverage. Some weeks later, WXXI contacted our team about covering the election and what our students were planning on doing so they could cover the story. The week before the big day, FOSS@RIT sent some Hackers and Storytellers to WXXI HQ, to meet with Rachel, Zack, and IT pro Steve Dodd.<br/><br/>
+ 
+ As Monroe County and most other County's Board of Elections in New York State have switched from classic lever voting machines, to new Electronic Optical Scan Machines, we all had to work together on making use of the new results from the <a href="http://www.monroecounty.gov/elections-index.php" target="top">Monroe County Board of Elections</a> (MCBOE). During our Primary Results Viewing earlier this fall, we got our first look at the .XML files being made public, and the <a href="http://66.192.47.50/flashresults.html" target="top">Flash Results page used to provide up-to-the-minute unnofficial results from the MCBOE</a>.<br/><br/>
+ 
+ Most media outlets task fleets of interns with following results pages just like this one, to manually copy, paste, compute, and re-paste the results into .html pages to provide results via the web. This process is painful and often by the time you go through all of this manual copy-pasting and refreshing, the results are already out of date. .XML files, however, work very similarly to something like an RSS feed, and provide an ongoing stream of data to the flash site. So why not try to tap into that stream to back-end and automatically update the .html results, instead of doing everything by hand? This is exactly what WXXI was looking to implement, and exactly what FOSS@RIT's Ace Hacker, <a href="http://whynotwingnut.blogspot.com/search/label/FOSSRIT" target="top">Nate Case</a> was able to execute. After about 30 mins of phonecalls to the MCBOE, and whois'ing various IP addresses, we managed to locate the (at the time, inactive) results page for Monroe County, and another active results page put out by the same software/voting machine provider in London, Ontario, Canada. From the results on that page, we were able to prototype an .XML->.html results page that would likely work with Monroe County's results once they were live!<br/><br/>
+ 
+ After a follow-up meeting on Monday and a quick tire-kicking session, we pointed Rachel at the page, and embedded it into WXXI's <a href="http://innovationtrail.org/post/election-night-results" target="top">InnovationTrail.org</a>. <br/><br/>
+ 
+ All we could do then, was wait.<br/><br/>
+
+9pm rolled around, and we anxiously waited for results to start popping up on the big screen. 9:15 came and went, and I nervously tugged at Nate's shirt, asking if he was sure everything was good to go. Nate smiled slyly, and said "If they post any results, they will show up on the page. Don't worry." By 9:35, a wave of gasps went across the audience, and then a round of applause, as the screens auto-refreshed and results began upticking on the screen for the first time.<br/><br/>
+
+Ofcourse, any time you are testing live code for the first time, you are going to have to make some last-minute tweaks and adjustments. Our first hiccup was when we looked at the Race for 28th congressional district and saw what seemed to be Louise Slaughter, getting Slaughtered. This was a quick and obvious indication that something was afoot, and lo and behold, we found that the folks providing the .XML file were re-using some of the id's in the code, and that we needed to do some manual summation in our script.<br/><br/>
+
+Once that was tackled, a few moments later, one of the more astute students, Alexandra Howland of Computer Science House tapped me on the shoulder and said, "It looks like there have been 1.2 million votes for Cuomo, but there aren't even 1 million people living in Rochester..." She was right, and we realized that the numbers were incrementing each time, instead of just updating. So we "fixed" that incrementation bug too, only to find later that our results, though precise, were not exactly accurate. In fact, our results were exactly double the numbers coming from the MCBOE. Nate then gave the script one last tweaking, and before all the districts had reported, <a href="http://foss.rit.edu/election" target="top">we had a proper reporting page, with up-to-the-minute results</a>.<br/><br/>
+
+Too often, when students do projects in courses it is under some pretense or using code that is only for a class project and will never see the light of day. This collaboration, however, was quite the opposite. Nate's scraper was not only used in an actual journalistic capacity by real journalists and news organizations, but he will also be submitting it as his final project for Andrea's course.<br/><br/>
+
+WXXI and FOSS@RIT are already talking about next year's Monroe County Legislature Race, and helping the MCBOE test their software for next fall. Putting theory into practice, and applying the principles of computer and political science to real world situations, to solve real world problems is the exciting new direction that academic collaboration is taking here at RIT, and will continue to move toward so long as we continue to work with talented students like Nate, Justin Lewis, and Chris DesLandes, who deserve a special thanks for running the screens, writing the scripts, and keeping the wheels on the wagon during the event.<br/><br/> 
+
+Special thanks to WXXI and Rachel and Zack for giving our students a look behind the curtain at how political reporting actually works. Thank you too, to Professors Fornieri, Sutton, and Hickerson for giving our students the opportunity to actually apply their lessons, and the Center for Student Innovation for hosting the event.
+
+</p><br/><br/>
+<div style="width: 100%; height: 300px;">
+<object width="100%" height="100%"> <param name="flashvars" value="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fliqianyi%2Fsets%2F72157625180563415%2Fshow%2F&page_show_back_url=%2Fphotos%2Fliqianyi%2Fsets%2F72157625180563415%2F&set_id=72157625180563415&jump_to="></param> <param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=71649"></param> <param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/slideshow/show.swf?v=71649" allowFullScreen="true" flashvars="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fliqianyi%2Fsets%2F72157625180563415%2Fshow%2F&page_show_back_url=%2Fphotos%2Fliqianyi%2Fsets%2F72157625180563415%2F&set_id=72157625180563415&jump_to=" width="100%" height="100%"></embed></object>
+</div>
+</div>
+
+       
+       
+       <div style="clear:both; margin-bottom: 20px;"></div>
+       
+     <!-- end content -->
+	 </div>
+	 <div id="sidebar">
+     	<div class="full_row_clear" style="margin-top: 10px;">
+        <h3>Key Research Personnel</h3>
+        </div>
+       
+       <div class="full_row" style="height: auto; width: auto; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; margin-top: 0px;">
+        <img src="../people/affiliates/stephen_jacobs.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Stephen Jacobs</h5><p style="font-size: 10px;">Associate Director<br/> RIT MAGIC Center<br/>Professor, School of Interactive Games &amp; Media, GCCIS<br/>Visiting Scholar, National Center for the History of Electronic Games</p></div><div style="clear: both;"></div>
+        </div>
+       
+       <div class="full_row" style="height: auto; width: auto; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; margin-top: 0px;">
+       <img src="../people/affiliates/remy_decausemaker.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Remy DeCausemaker</h5><p style="font-size: 10px;">Open Source Research Coordinator &amp; MAGIC FOSS Evangelist<br/> RIT MAGIC Center</p>
+       </div><div style="clear: both;"></div></div>
+       
+       <div class="full_row_clear" style="margin-top: 10px;">
+        <h3>Special Thanks &amp; Recognition</h3>
+        </div>
+       
+      <div class="full_row" style="height: auto; width: auto; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; margin-top: 0px;">
+       <img src="../people/partners/red_hat.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Red Hat, Inc.</h5><p style="font-size: 10px;">The FOSS@MAGIC initiative, and our work in both curricular development and events and engagement opportunities for FOSS education, would not be possible without the generous support of Red Hat, Inc.<br/></p>
+       </div><div style="clear: both;"></div></div>
+       
+       <div class="full_row_clear" style="margin-top: 10px;">
+        <h3>Partners &amp; Collaborators</h3>
+        </div>
+       <div class="full_row"><p>In addition to the <a href="../people/index.html">partners of the MAGIC Center</a> that the FOSS@MAGIC initiative draws upon as a part of its work, the initiative also works with several partners that are distinctive to the particular focus of our work in free and open source software:</p><br/>
+       <h4><a href="http://barcamproc.org" target="top">BarcampROC</a></h4><p>In the spirit of FooCamp, BarCamp is an ad-hoc gathering born from the desire for people to share and learn in an open environment. It is an intense event with discussions, demos, and interaction from attendees. All attendees must give a demo, a session, or help with one. All presentations are scheduled the day they happen. Prepare in advance, but come early to get a slot on the wall. Presenters are responsible for making sure that notes/slides/audio/video of their presentations are published on the web for the benefit of all and those who can't be present. Anyone with something to contribute or with the desire to learn is welcome and invited to join. Venture over to the BarcampRochester tag on Flickr for photos from the previous three events!</p><br/>
+       
+        <h4><a href="http://csh.rit.edu" target="top">Computer Science House (CSH)</a></h4><p>Computer Science House, founded in 1976, is one of the oldest and most popular Special Interest Houses at the Rochester Institute of Technology in Rochester, NY. Located on the third floor of the dormitory Nathaniel Rochester Hall, CSH provides a revolutionary living environment for over fifty students and many members who live off-floor.<br/><br/>
+
+In addition to RIT's standard residence hall facilities, CSH has nine, unique multi-purpose rooms, which have been filled with technical and material resources for the exclusive use of members 24/7. CSH's computing resources include e-mail, newsgroup, database and web space services, a floor-wide network, and a multitude of servers and workstations–all maintained and operated by members. Hands-on learning is emphasized in order to give members a significant advantage in the business world.
+</p><br/>
+       
+       <h4><a href="http://fedoraproject.org" target="top">Fedora</a></h4><p>Fedora is a Linux-based operating system that showcases the latest in free and open source software. Fedora is always free for anyone to use, modify, and distribute. It is built by people across the globe who work together as a community: the Fedora Project. The Fedora Project is open and anyone is welcome to join.
+</p><br/>
+       
+       
+           <h4><a href="http://interlockroc.org" target="top">InterlockROC</a></h4><p>Welcome to Interlock Rochester; the first and only hackerspace in Rochester, NY. Our goal is to provide members with a place to share, learn, and develop their ideas in a community environment. Members have access to our space 24/7 and can use it to store their projects, hold meetings, attend classes, or just hang out with other people doing extremely interesting stuff.<br/><br/>
+
+Interlock Rochester is an incorporated Not For Profit organization working to obtain official status as a 501(c)(3) Federal Tax Exempt organization. We started in October of 2009 by people who saw the need to find a place where they could develop their ideas together and Rochester was able to offer the right kind of locations and the right type of people to fill it. The group was officially incorporated on December 1, 2009 and has begun the long process of becoming a Federally recognized tax excempt organization.
+</p><br/>
+       
+       <h4><a href="http://wiki.laptop.org" target="top">OLPC</a></h4><p>The One Laptop per Child non-profit develops a low-cost laptop—the "XO Laptop"—to revolutionize how we educate the world's children. Our mission is to provide educational opportunities for the world's poorest children by giving each child a rugged, low-cost, low-power, connected laptop; and software tools and content designed for collaborative, joyful, self-empowered learning.
+</p><br/>
+
+ <h4><a href="http://wiki.laptop.org/go/OLPCorps_Africa_Rochester_Institute_Of_Technology_Uganda" target="top">OLPCorps Africa</a></h4><p>The Rochester Institute of Technology (RIT) team will be running an OLPC workshop at Kiira Primary School in Jinja, a rural district in Eastern Uganda. The nine week workshop from June 22 to August 21, 2009 (during the school’s second term), will be targeted towards the entire 6th grade stream (129 students, ages 10-12). The all speak English. RIT Team Members (all RIT students):<br/><br/>
+
+Deana Brown: M.S. in Information Technology graduate student, currently abroad completing her thesis at the University of Cape Town, in the area of Information and Communication Technologies for Development (ICT4D). She holds a Bachelor in Computer Science – Mathematics and Spanish and will serve at the team lead.<br/><br/>
+
+Ihudiya Ogburu: B.S. in Information Technology senior undergraduate student specializing in web design and application development programming. Past technology instructor at Internal Drive Camps. She will serve as the programming coordinator.<br/><br/>
+
+ Renee Baltimore: M.S. in Computer Science graduate student specializing in Artificial Intelligence. She has worked three years as a software developer and lead software engineer at Networking Systems Solutions. She holds a B.S. in Computer Science with Electronics and will serve as the technical lead.
+</p><br/>
+
+
+ <h4><a href="http://www.pen.ntid.rit.edu/welcome.php" target="top">PEN</a></h4><p>The Postsecondary Education Network-International (PEN-International), a multinational partnership of colleges and universities worldwide, was created in 2001 through grants funded by The Nippon Foundation of Japan. Its goal is to improve and expand postsecondary education for deaf and hard-of-hearing students around the world by sharing educational technology and conducting faculty development and training, particularly in developing countries.
+</p><br/>
+
+ <h4><a href="http://wiki.sugarlabs.org/go/Welcome_to_the_Sugar_Labs_wiki" target="top">Sugar Labs</a></h4><p>The mission of Sugar Labs® is to produce, distribute, and support the use of the Sugar learning platform; it is a support base and gathering place for the community of educators and developers to create, extend, teach, and learn with the Sugar learning platform.  Sugar is based on the following principles: (1) everyone is a teacher and a learner; (2) humans by their nature are social beings; (3) humans by their nature are expressive; (4) you learn through doing; and (5) love is a better master than duty.
+</p><br/>
+<!-- end partners -->
+</div> 
+       
+       
+       <div class="full_row_clear" style="margin-top: 20px;"><h3>Related Publications</h3></div>
+       <div class="full_row">
+       <h5>Undergraduate Research Symposium Projects, Presentations &amp; Downloads</h5>
+       <ul>
+       <li class="site_text"><a href="files/OVCPaper.pdf" target="top">Open Video Chat</a></li>
+       <li class="site_text"><a href="files/Open_Video_Chat_Presentation.pdf" target="top">Open Video Chat Presentation</a></li>
+       <li class="site_text"><a href="files/GameEnginePaper.pdf" target="top">Fortune Hunter Engine Paper</a></li>
+       <li class="site_text"><a href="files/Game_and_Art_Engine.pdf" target="top">Fortune Hunter Game &amp; Animation Engine Presentation</a></li>
+       </ul>
+       
+       <h5>Additional Papers &amp; Presentations</h5>
+       <ul>
+       <li class="site_text"><a href="http://teachingopensource.org/index.php/TOSS09" target="top">Round Table on curriculum</a> at Teaching Open Source Summit</li>
+       <li class="site_text"><a href="http://www.hfoss.org/hfoss2010/?q=node/10" target="top">HFOSS Symposium Round Table</a></li>
+       <li class="site_text"><a href="files/Open_Source_Software_Research_Mini_Summit.pdf" target="top">Open Source Software Mini-Summit</a></li>
+       <li class="site_text"><a href="http://www.youtube.com/watch?v=fZxI2ZqSyrA&feature=youtu.be" target="top">RemyD at TEDx Buffalo</a></li>
+       <li class="site_text"><a href="files/connectology.ppt" target="top">Connectology 2011</a></li>
+       <li class="site_text"><a href="files/CIVX Capitol Camp 2010.odp" target="top">CIVX CapitolCamp 2011</a></li>
+       <li class="site_text"><a href="files/wlny11_0.pdf" target="top">CIVX WeLiveNY Summit</a></li>
+       </ul>
+       
+       </div>
+	<!-- end sidebar -->
+	 </div>
+	
+	 <div id="footer">
+      &nbsp;
+	 </div>
+    </div>
+</div>
+
+  <!-- footer and legalese -->
+<div id="magic_footer">
+	<script type="text/javascript" src="../scripts/footer.js"></script>
+</div>
+</div>
+
+</body>
+</html>
+

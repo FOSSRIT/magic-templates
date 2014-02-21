@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+<!-- viewport meta to reset iPhone inital scale -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta property="og:site_name" content="The RIT MAGIC Center" />
+<meta property="og:image" content="http://magic.rit.edu/theme_images/MAGIC_CENTER_LOGO.jpg" />
+<meta property="og:title" content="RIT MAGIC Center" />
+<meta property="og:url" content="http://magic.rit.edu/" />
+
+<title>RIT MAGIC Center | Faculty Affiliation Model</title>
+
+<!-- css3-mediaqueries.js for IE8 or older -->
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="../styles/magic.css" />
+<link rel="stylesheet" type="text/css" href="../styles/nav_menu.css" />
+<link rel="stylesheet" type="text/css" href="../styles/flippers.css" />
+
+<script type="text/javascript">
+	document.doRandomFlips = false;
+	
+	// this function determines whether the event is the equivalent of the microsoft
+	// mouseleave or mouseenter events.
+	function isMouseLeaveOrEnter(e, handler)
+	{		
+		var reltg = e.relatedTarget ? e.relatedTarget : e.type == 'mouseout' ? e.toElement : e.fromElement;
+		while (reltg && reltg != handler) reltg = reltg.parentNode;
+		return (reltg != handler);
+	}
+	//thans to http://www.dynamic-tools.net/toolbox/isMouseLeaveOrEnter/ for this function
+</script>
+<script src="../scripts/castle_creator.js" type="text/javascript"></script>
+<script type="text/javascript" src="../scripts/flipper.js"></script>
+<script type="text/javascript" src="../scripts/animator.js"></script>
+<script type="text/javascript" src="../scripts/particle_manager.js"></script>
+<script src="../scripts/mobile_menu.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<!-- RIT logo -->
+<div id="rit_logo"><a href="http://www.rit.edu/"><img src="../theme_images/rit_logo_bar.png" alt="RIT logo" style="border: 0px; width: 375px; height: 40px;" /></a></div>
+<div id="rit_logo_mobile"><a href="../main/index.html">
+  <img src="../theme_images/magic_logo_for_mobile.png" 
+       style="width: 110px; height: 40px; float: left; border: 0px;" 
+       alt="MAGIC logo"/></a>
+       
+       <div style="float: left; margin-top: 12px;"><h3>@</h3></div>
+       
+       
+       <a href="http://www.rit.edu/">
+  <img src="../theme_images/rit_logo_for_mobile.png" 
+       style="width: 102px; height: 40px; float: right;" 
+       alt="RIT logo"/></a>
+</div>
+
+<!-- RIT institute header, modded for mobile and small magic nav -->
+
+<div id="rit_header">
+	<div id="metanav">
+    <div id="mobile_nav_menu"><a class="nav_text" href="#" onclick="toggle_mobile_menu();"><img style="float: right; padding-left: 5px;" width="40" height="40"  alt="Mobile Navigation Menu" src="../theme_images/menu_bar_icon.png"/></a></div>
+    	<div id="metanav_right"> 
+    <ul>
+      <li id="metaritdirectories">
+        <a href="http://www.rit.edu/directories/">Directories</a>
+      </li>
+    </ul>
+
+    <div id="metaritsearchdiv">
+      <form action="http://www.rit.edu/search/" id="metasearchform" method="get" name="metasearchform">
+        <div class="row collapse">
+          <div class="large-8 columns">
+            <input id="rit_input" maxlength="250" name="q" type="text" />
+          </div>
+
+          <div class="large-1 columns">
+            <em class="foundicon-search" id="rit_search_submit"></em>
+          </div>
+        </div>
+      </form>
+    </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- particle alrea and general hackery -->
+<canvas id="ParticleArea" class="particle_area" width="300" height="550"></canvas>
+<div id="ParticleAreaOld" class="particle_area" style="height: 550px; display: none;">
+        <div id="ParticleFade" style="position: absolute; height: 157px; width:100%; top: 393px; display: none; background-image:url(../theme_images/fade.png); background-repeat: repeat;">
+        </div>
+</div>
+
+<!-- background images (castle and custom artwork) -->
+<div id="background_images" style="width: 100%; height: 900px; overflow: hidden;">
+    <div id="castle" style="top: 51px; background: none; width: auto; 
+    						height: 550px; overflow: hidden;
+                            background-repeat: no-repeat;"><svg id="castle_svg_container">
+	  </svg></div>
+                            
+    <div id="page_art" style="background-image: url(../theme_images/dragon.png); 
+    						height: 685px; width: 646px; left: 75px; overflow: hidden;
+                            background-repeat: no-repeat;"></div>
+</div>
+
+<!-- main page containeer, allows things to extend all over the edges of things) -->
+<div id="pagewrap_abscontainer">
+
+<!-- aesthetic nav bar, real nav is in the main header -->
+<div id="nav_header"></div>
+
+<!-- actual page -->
+<div id="pagewrap">
+	<!-- navigation bar -->
+	<div id="header">
+      <script type="text/javascript" src="../scripts/nav_menu.js"></script>
+    </div>
+    
+    <div id="main_content_area">
+     
+	 <div id="content">
+     <div class="full_row_clear">
+     	<h3>Faculty Affiliation with the MAGIC Center</h3>
+     </div>
+       <div class="full_row" style="margin-bottom: 20px;">
+       <p>As an RIT Research Center of Excellence, the MAGIC Center acts as a nexus point for the exploration of digital media, interactive experiences, and expression through technology, as well as the considered study of the impact of such work and experiences on the human condition. In order to promote a broad and inclusive culture of research and exploration, and to staff the Center with an appropriate multi-disciplinary faculty that can engage in the sustained study of the field from multiple points of view, the Center operates through a model of 'faculty affiliation'.</p><br/>
+       <p>Under this model, individual faculty from various departments, colleges, and institutes across the university are invited to affiliate with the Center as is relevant to their scholarly and creative work and background. The Center agrees to provide resources, administration, support, and infrastructure to support such work, and, most importantly, to establish and maintain a culture of multi-disciplinary inclusion and sustained inquiry. Our goal is to provide a shared space for collaboration, construction, and discourse that enables and extends faculty research into the field.</p>
+       <img src="images/fac_affiliation_process.png" style="width: 100%; height: auto;" alt="process of faculty affiliation" />
+       <p>As a part of this process, faculty are required to formally affiliate with the Center, and to document this affiliation through the completion of one of the two forms below (depending on their primary home department: these agreements are largely synonymous other than a particular nuance regarding review metrics in collaboration with the School of Interactive Games & Media that was the birthplace of the MAGIC Center concept).</p>
+       </div>
+       
+       <div class="full_row_clear">
+       	<h3>Overhead Model for Affiliated Work</h3>
+       </div>
+		<div class="full_row" style="margin-bottom: 20px;">
+        <p>The following is a diagram of how overhead for funded projects is 'split out' when work is affiliated with the Center. While individual colleges and PI's still get the same percentage they would for non-affiliated work, the university gives back to the center an additional return that can be used to support the project in question, and/or kickstart additional work through the Center. In addition, individual PI's can manage their overhead through the Center, and utilize the same staff that are managing the rest of their funds for these purposes (hiring students, purchasing equipment, planning professional travel, etc.) The distribution of overhead pictured here is based on the Provost's memo regarding the distribution of overhead funds, coupled with the overhead return of an RIT Research Center of Excellence.</p><br/>
+        <img src="images/center_model_overhead_split.png" style="width: 100%; height: auto;" alt="overhead percentages for affiliated work" />
+        </div>
+     <!-- end content -->
+	 </div>
+
+	 <div id="sidebar">
+     	<div class="full_row_clear" style="margin-top: 10px;">
+        <h3>Characteristcs of Faculty Affiliation</h3>
+        </div>
+		<div class="sidebar_fill" style="margin-bottom: 20px;">
+        <p>1.Faculty affiliation is designed to be a loose system, easy for collaborators to join and choose their level of engagement.</p><br/>
+
+<p>2.Because it reaches across the university, it is specifically designed to promote multi-disciplinary collaboration and engagement.  The primary purpose of affiliation is to build community, density, and capability in the area of digital media.</p><br/>
+
+<p>3.Because it’s reliant on yearly plans of work as a key input, faculty can self-determine engagement level and scope for scholarly/creative work and service contributions.</p><br/>
+
+<p>4.Affiliation is reviewed every other year by Center Director and a committee of affiliated faculty, as well as by the individual faculty affiliate, in case plans change or new directions emerge.</p><br/>
+
+<p>5.Given the volatility of the field, affiliation agreements can be ended early by either party (but has some financial ramifications for work-in-progress that is funded or supported work administered by MAGIC).</p><br/>
+        </div>
+        
+        <div class="full_row_clear">
+        	<h3>Faculty Affiliation Agreement Forms</h3>
+        </div>
+        <div class="sidebar_fill">
+        <ul>
+        <li class="site_text"><a href="../docs/docs/magic_igm_affiliation_agreement.pdf">MAGIC Affiliation Agreement for RIT IGM Faculty</a><br/> [PDF 250K]</li>
+        <li class="site_text"><a href="../docs/docs/magic_rit_affiliation_agreement.pdf">MAGIC Affiliation Agreement for all RIT Faculty</a><br/> [PDF 250K]</li>
+        </ul>
+        </div>
+	<!-- end sidebar -->
+	 </div>
+	
+	 <div id="footer">
+      &nbsp;
+	 </div>
+    </div>
+</div>
+
+  <!-- footer and legalese -->
+<div id="magic_footer">
+	<script type="text/javascript" src="../scripts/footer.js"></script>
+</div>
+</div>
+
+</body>
+</html>
