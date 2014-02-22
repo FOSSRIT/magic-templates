@@ -46,23 +46,23 @@ module.exports = function(grunt) {
       build: {
         options: {
           sassDir: 'style',
-          cssDir: '../build/debug/style',
+          cssDir: '../foss/style',
           outputStyle: 'expanded',
           noLineComments: true,
           force: true,
           relativeAssets: true,
-          images: '../build/debug/img',
+          images: '../foss/img',
           environment: 'development'
         }
       },
       modules: {
         options: {
-          cssDir: '../build/debug/style/modules',
+          cssDir: '../foss/style/modules',
           outputStyle: 'expanded',
           noLineComments: true,
           force: true,
           relativeAssets: true,
-          images: '../build/debug/img',
+          images: '../foss/img',
           environment: 'development'
         }
       }
@@ -72,16 +72,16 @@ module.exports = function(grunt) {
     // copy files (font, img, js)
     copy: {
       font: {
-        files: [{expand: true, cwd: 'style/fonts', src:['**'], dest: '../build/debug/style/fonts'}]
+        files: [{expand: true, cwd: 'style/fonts', src:['**'], dest: '../foss/style/fonts'}]
       },
       img: {
-        files : [{expand: true, cwd: 'img', src: ['**'], dest: '../build/debug/img'}]
+        files : [{expand: true, cwd: 'img', src: ['**'], dest: '../foss/img'}]
       },
       js: {
-        files : [{expand: true, cwd: 'js', src: ['**'], dest: '../build/debug/js'}]
+        files : [{expand: true, cwd: 'js', src: ['**'], dest: '../foss/js'}]
       },
       module_js: {
-        files: [{expand: true, cwd: 'modules', src: ['**/js/*.js'], dest: '../build/debug/js/modules/'}]
+        files: [{expand: true, cwd: 'modules', src: ['**/js/*.js'], dest: '../foss/js/modules/'}]
         // go through every module folder
         // files : function() {
         //   var module, array = [];
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
         //   // copy all js
         //   grunt.file.expand('modules/**/js').forEach(function(path) {
         //     module = path.split('/')[1];
-        //     array.push({expand: true, cwd: path, src: ['**'], dest: '../build/debug/js/modules/'});
+        //     array.push({expand: true, cwd: path, src: ['**'], dest: '../foss/js/modules/'});
         //   });
         //   return array;
         // }
@@ -101,17 +101,11 @@ module.exports = function(grunt) {
     jade: {
       index: {
         options: jadedebug,
-        files: [{expand: true, cwd: './', src: ['*.jade'], dest: '../build/debug', ext: '.html', flatten: true }]
-      },
-      modules: {
-        options: jadedebug,
-        files: [
-          {expand: true, cwd: 'modules', src: '**/demo/*.jade', dest: '../build/debug', ext: '.html', flatten: true }
-        ]
+        files: [{expand: true, cwd: './', src: ['*.jade'], dest: '../foss', ext: '.html', flatten: true }]
       },
       pages: {
         options: jadedebug,
-        files: [{expand: true, cwd: 'pages', src: '*.jade', dest: '../build/debug', ext: '.html', flatten: true}]
+        files: [{expand: true, cwd: 'pages', src: '*.jade', dest: '../foss', ext: '.html', flatten: true}]
       }
     },
 
@@ -159,14 +153,14 @@ module.exports = function(grunt) {
     // yui compression
     min: {
       dist: {
-        src: ['../build/debug/js/main.js', '../build/debug/js/modules/*.js'],
-        dest: '../build/debug/js/main.min.js'
+        src: ['../foss/js/main.js', '../foss/js/modules/*.js'],
+        dest: '../foss/js/main.min.js'
       }
     },
     cssmin: {
       dist: {
-        src: ['../build/debug/style/style.css', '../build/debug/style/modules/*.css'],
-        dest: '../build/debug/style/style.min.css'
+        src: ['../foss/style/style.css', '../foss/style/modules/*.css'],
+        dest: '../foss/style/style.min.css'
       }
     }
 
@@ -197,7 +191,6 @@ module.exports = function(grunt) {
       'copy:js',
       'js',
       'jade:pages',
-      'jade:modules',
       'jade:index',
       'min',
       'cssmin',

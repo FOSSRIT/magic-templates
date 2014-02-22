@@ -1,7 +1,7 @@
 {
-  "name": "rose",
+  "name": "magic-templates",
   "version": "0.0.2",
-  "description": "from small/quick websites",
+  "description": "building some static content for foss.magic.rit",
   "devDependencies" : {
     "grunt" : "~0.4.1",
     "grunt-contrib-compass" : "0.5.0",
