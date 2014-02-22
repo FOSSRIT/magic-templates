@@ -1,0 +1,32 @@
+<!-- RIT logo -->
+div#rit_logo
+  a(href="http://www.rit.edu/")
+    img(src="../theme_images/rit_logo_bar.png", alt="RIT logo")
+
+div#rit_logo_mobile
+  a(href="../main/index.html")
+    img#magic-logo(src="../theme_images/magic_logo_for_mobile.png", alt="MAGIC logo")
+  span @
+  a(href="http://www.rit.edu/")
+    img#rit_mobile_logo_2(src="../theme_images/rit_logo_for_mobile.png", alt="RIT logo")
+
+
+<!-- RIT institute header, modded for mobile and small magic nav -->
+div#rit_header
+  div#metanav
+    div#mobile_nav_menu
+      a(class="nav_text", href="#", onclick="toggle_mobile_menu();")
+        img(style="float: right; padding-left: 5px;", width="40", height="40", alt="Mobile Navigation Menu", src="../theme_images/menu_bar_icon.png")
+    div#metanav_right
+      ul
+        li#metaritdirectories
+          a(href="http://www.rit.edu/directories/") Directories
+
+      div#metaritsearchdiv
+        form#metasearchform(action="http://www.rit.edu/search/", method="get", name="metasearchform")
+          div.row.collapse
+            div.large-8.columns
+              input#rit_input(maxlength="250", name="q", type="text")             
+            div.large-1.columns
+              em#rit_search_submit.foundicon-search
+              

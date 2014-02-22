@@ -1,15 +1,15 @@
-include html/jade-helpers.jade
+include ../html/jade-helpers.jade
 !!! 5
 
 head
   title RIT MAGIC Center Projects | FOSS @ MAGIC
   meta(name="description", content="description")
-  include html/head.jade
+  include ../html/head.jade
 
 body#fossbox
-  include html/global-header.jade
+  include ../html/global-header.jade
 
-  include html/particle-area.jade
+  include ../html/particle-area.jade
 
   <!-- main page containeer, allows things to extend all over the edges of things) -->
   div#pagewrap_abscontainer
@@ -24,11 +24,12 @@ body#fossbox
         script(type="text/javascript", src="../scripts/nav_menu.js")
       div#main_content_area         
         div#content
-        div#sidebar
-        div#footer &nbsp;
+        aside#sidebar
+        footer#footer &nbsp;
+
 
     <!-- footer and legalese -->
     div#magic_footer
       script(type="text/javascript", src="../scripts/footer.js")
-include html/foot.jade
+include ../html/foot.jade
 </html>
