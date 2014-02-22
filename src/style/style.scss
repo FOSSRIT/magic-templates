@@ -6,9 +6,183 @@
 // @import "pieces/base";
 // @import "pieces/typography";
 
-// // icon set
-// // @import "font-awesome/font-awesome";
+#fossbox {
+	p, li {
+		font-size: 1rem;
+		line-height: 1.3;
+		margin-bottom: 1rem;
+	}
+	figure {
+		margin: 0;
+	}
+}
 
-// body {
-//   background: tomato;
-// }
+// header 
+// ===================================
+#rit_logo img {
+	max-width: 100%;
+}
+
+#rit_logo_mobile span {
+	position: relative;
+	bottom: 0.75rem;
+	display: inline-block;
+	padding: 0 0.25rem;
+}
+
+
+
+// content stuff
+// ===================================
+// ===================================
+// header
+#intro-header {
+	font-size: 2rem;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+#about-the-box {
+	padding-top: 1rem;
+	img {
+		float: left;
+		margin: 0 1rem 1rem 0;
+	}
+	h4 {
+		margin-bottom: 1rem;
+		font-size: 1.25rem;
+	}
+}
+
+
+// mission statement
+#fossbox-mission {
+	position: relative;
+	margin-bottom: 3rem;
+	@include mq(netbook) {
+		@include flexbox();
+		a {
+			@include flex(2);
+			@include order(2);
+		}
+	}
+}
+#election-night-img {max-width: 100%;}
+
+.mission_statement {
+	text-align: right;
+	position: absolute;
+	bottom: 0;
+	padding: 0.5rem 0.5rem 1rem;
+	background: rgba(0, 0, 0, 0.5);
+	@include mq(netbook) {
+		position: static;
+		@include flex(2);
+		@include order(1);
+	}
+	h1 {font-size: 36px;}
+}
+
+// getting involved
+#getting-involved {
+	margin-bottom: 3rem;
+	h3, h4 {
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		margin-bottom: 1rem;
+	}
+	h4 {
+		font-size: 1rem;
+		margin-top: 2rem;
+	}
+}
+
+
+// projects
+#projects {
+	h3 {
+		margin-bottom: 1.5rem;
+	}
+}
+.foss-project {
+	padding: 0.5rem;
+	background: rgba(255,255,255,0.1);
+	margin-bottom: 3rem;
+	img {
+		display: block;
+		max-width: 100%;
+	}
+	@include mq(netbook) {padding: 1rem;}
+}
+.project-description {
+	// margin: 0.5rem;
+}
+.project-title {
+	color: #fff;
+	font-size: 1.5rem;
+	margin: 1rem 0 1.5rem;
+}
+.abstract {
+	text-transform: uppercase;
+	margin-bottom: 0.5rem;
+}
+.project-links h6 {
+	font-size: 1rem;
+	margin-bottom: 0;
+}
+
+
+// key personnel
+#key-personnel {
+	padding-top: 1rem;
+	margin-bottom: 2rem;
+	h3 {margin-bottom: 1.5rem; }
+}
+.profile {
+	background: rgba(255,255,255,0.1);
+	padding: 0.5rem;
+	margin-bottom: 0.75rem;
+	@include cf();
+	h4 {
+		letter-spacing: 1px;
+		font-weight: bold;
+		margin-bottom: 0.5rem;
+	}	
+}
+.credentials {
+	margin: 0;
+	padding: 0;
+	li {
+		font-size: 0.75rem !important;
+		list-style-type: none;
+		margin-bottom: 0.25rem !important;
+	}
+}
+
+
+// special thanks
+#special-thanks {
+	@extend #key-personnel;
+}
+
+
+// partners
+#partners {
+	@extend #key-personnel;
+}
+.partner {
+	margin-bottom: 2rem;
+	h4 {
+		margin-bottom: 0.5rem;
+		font-weight: bold;
+	}
+}
+
+
+#publications {
+	@extend #key-personnel;
+	h5 {
+		font-size: 0.875rem;
+		line-height: 1.2;
+		// text-transform: uppercase;
+	}	
+}
