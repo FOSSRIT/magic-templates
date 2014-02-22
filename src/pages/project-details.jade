@@ -22,9 +22,48 @@ body#fossbox
       <!-- navigation bar -->
       div#header
         script(type="text/javascript", src="../scripts/nav_menu.js")
-      div#main_content_area         
+      div#main_content_area.project-page
         div#content
-        aside#sidebar
+          <!-- blocku -->
+          div.foss-project.full_row
+           article.project-description
+              h4.project-title Blocku
+              figure
+                img(src="projects/blocku.png", alt="picture of project")
+              h5.abstract Abstract
+              p Blocku is a puzzle game consisting of filling a grid with squares by matching the squares sides by following a constraint. 
+              p Blocku is a game that can be used by teachers to teach a multitude of subjects to students. The teacher will be able to create a constraint such as match the formula to the answer or A + B = C. Then the teacher makes a list with two columns. Each row in the columns is a pair of of matching objects. The first row of column A matches the first row of column B.
+              p Using this formula the game will randomly assign the objects of each column to square blocks, one object per side. The student then has to put all the pieces in a grid so that pairs on the sides of the squares follow the constraint. The student will be able to move the pieces as well as rotate them.  Submitted by: fran.
+              aside.project-links
+                h6 Links and References
+                ul
+                  li.site_text
+                    a(href="http://wiki.sugarlabs.org/go/Blocku", target="top") Blocku Wiki Page
+             
+          div.full_row.other-projects
+            h3 Other Projects
+            div.project-row
+              <!-- fortune hunter -->
+              div.foss-project
+                article.project-description
+                  h4.project-title
+                  a(href="#") Mathmematical Adventure: Fortune Hunter
+                   
+              <!-- FOSS RPG -->
+              div.foss-project
+                article.project-description
+                  h4.project-title
+                  a(href="#") FOSS Community RPG Research
+
+              <!-- GS Games Workshop -->
+              div.foss-project
+                article.project-description
+                  h4.project-title
+                  a(href="#") Girl Scouts games for Life Workshop
+
+
+
+        //- aside#sidebar
         footer#footer &nbsp;
 
 

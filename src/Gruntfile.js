@@ -146,7 +146,7 @@ module.exports = function(grunt) {
       },
       pages: {
         files: ['pages/*.jade'],
-        tasks: ['pages']
+        tasks: ['jade:pages']
       }
     },
 
