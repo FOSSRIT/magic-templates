@@ -188,3 +188,37 @@
   font-size: 0.875rem;
   line-height: 1.2;
 }
+
+#main_content_area.project-page #content {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .project-page .project-description figure {
+    float: left;
+    padding-right: 2rem;
+  }
+}
+
+.other-projects {
+  padding-top: 1rem;
+}
+.other-projects h3 {
+  margin-bottom: 1.5rem;
+}
+@media only screen and (min-width: 768px) {
+  .other-projects .project-row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  .other-projects .foss-project {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
