@@ -1,0 +1,19 @@
+include jade-helpers.jade
+include meta.jade
+
+  //- load modernizr
+  script(src="js/libs/modernizr.js")
+
+  //- load main site styles
+  <!--[if lt IE 9]> <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script> <![endif]-->
+  link(rel="stylesheet", type="text/css", href="../styles/magic.css")
+  link(rel="stylesheet", type="text/css", href="../styles/nav_menu.css")
+  link(rel="stylesheet", type="text/css", href="../styles/flippers.css")
+  //- FOSSBox styles
+  link(rel="stylesheet", href="style/style.css")
+
+  script(src="../scripts/castle_creator.js", type="text/javascript")
+  script(type="text/javascript", src="../scripts/flipper.js")
+  script(type="text/javascript", src="../scripts/animator.js")
+  script(type="text/javascript", src="../scripts/particle_manager.js")
+  script(src="../scripts/mobile_menu.js", type="text/javascript")

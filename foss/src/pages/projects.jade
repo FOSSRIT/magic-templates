@@ -1,0 +1,131 @@
+include ../html/jade-helpers.jade
+!!! 5
+
+head
+  title RIT MAGIC Center Projects | FOSS @ MAGIC
+  meta(name="description", content="description")
+  include ../html/head.jade
+
+body#fossbox
+  include ../html/global-header.jade
+
+  include ../html/particle-area.jade
+
+  <!-- main page containeer, allows things to extend all over the edges of things) -->
+  div#pagewrap_abscontainer
+
+    <!-- aesthetic nav bar, real nav is in the main header -->
+    div#nav_header
+
+    <!-- actual page -->
+    div#pagewrap
+      <!-- navigation bar -->
+      div#header
+        script(type="text/javascript", src="../scripts/nav_menu.js")
+      div#main_content_area.all-projects        
+        div#content
+          section#projects.full_row_clear
+            h3 FOSS@MAGIC Projects
+            
+            div.project-row
+              <!-- blocku -->
+              div.foss-project
+                figure
+                  img(src="projects/blocku.png", alt="picture of project")
+               
+                article.project-description
+                  h4.project-title Blocku
+                 
+              <!-- civx -->
+              div.foss-project
+                figure
+                  img(src="projects/civx.png", alt="picture of project")
+                article.project-description
+                  h4.project-title CIVX
+                    
+              <!-- fortune hunter -->
+              div.foss-project
+                figure
+                  img(src="projects/fortune_hunter_logo.png", alt="picture of project")
+                article.project-description
+                  h4.project-title Mathmematical Adventure: Fortune Hunter
+            
+            div.project-row
+              <!-- GS Games Workshop -->
+              div.foss-project
+                figure
+                  img(src="projects/gs_gccis_rit.png", alt="picture of project")
+                article.project-description
+                  h4.project-title Girl Scouts games for Life Workshop
+                    
+              <!-- lazorz -->
+              div.foss-project
+                figure
+                  img(src="projects/lazorzs.png", alt="picture of project")
+                article.project-description
+                  h4.project-title Lazorz
+                
+              <!-- lemonade stand -->
+              div.foss-project
+                figure
+                  img(src="projects/lemonade.png", alt="picture of project")         
+                article.project-description
+                  h4.project-title Lemonade Stand
+
+
+            div.project-row                                  
+              <!-- media wiki vis -->
+              div.foss-project
+                figure
+                  img(src="projects/media_wiki_vis.jpg", alt="picture of project")
+               
+                article.project-description
+                  h4.project-title MediaWiki Visualization
+
+              <!-- narcissus -->
+              div.foss-project
+                figure
+                  img(src="projects/narc.png", alt="picture of project")
+                article.project-description
+                  h4.project-title narcissus
+                   
+              <!-- Open Video Chat -->
+              div.foss-project
+                figure
+                  img(src="projects/0vc.png", alt="picture of project")
+                article.project-description
+                  h4.project-title Open Video Chat
+
+
+             
+             div.project-row                                    
+              <!-- Wikiotics -->
+              div.foss-project
+                figure
+                  img(src="projects/wikiotics.jpg", alt="picture of project")
+                article.project-description
+                  h4.project-title Wikiotics
+              
+              <!-- FOSS RPG -->
+              div.foss-project
+                figure
+                article.project-description
+                  h4.project-title FOSS Community RPG Research
+
+              <!-- groovebot -->
+              div.foss-project
+                figure
+                article.project-description
+                  h4.project-title Groove Bot
+
+          <!-- end content -->
+
+        //- aside#sidebar
+        footer#footer &nbsp;
+
+
+    <!-- footer and legalese -->
+    div#magic_footer
+      script(type="text/javascript", src="../scripts/footer.js")
+include ../html/foot.jade
+</html>

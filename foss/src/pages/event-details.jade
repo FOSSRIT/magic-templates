@@ -1,0 +1,36 @@
+include ../html/jade-helpers.jade
+!!! 5
+
+head
+  title RIT MAGIC Center Projects | FOSS @ MAGIC
+  meta(name="description", content="description")
+  include ../html/head.jade
+
+body#fossbox
+  include ../html/global-header.jade
+
+  include ../html/particle-area.jade
+
+  <!-- main page containeer, allows things to extend all over the edges of things) -->
+  div#pagewrap_abscontainer
+
+    <!-- aesthetic nav bar, real nav is in the main header -->
+    div#nav_header
+
+    <!-- actual page -->
+    div#pagewrap
+      <!-- navigation bar -->
+      div#header
+        script(type="text/javascript", src="../scripts/nav_menu.js")
+      div#main_content_area         
+        div#content
+        aside#sidebar
+        
+        footer#footer &nbsp;
+
+
+    <!-- footer and legalese -->
+    div#magic_footer
+      script(type="text/javascript", src="../scripts/footer.js")
+include ../html/foot.jade
+</html>

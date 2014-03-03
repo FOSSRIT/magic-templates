@@ -1,0 +1,46 @@
+// base styles
+@import "../pieces/vars";
+@import "../pieces/mixins";
+
+
+#main_content_area.all-projects {
+	#content {
+		width: 100%;
+	}
+
+}
+
+
+
+// single page detail
+// ===================================
+#main_content_area.project-page {
+	#content {
+		width: 100%;
+	}	
+}
+.project-page {
+	.project-description {
+		@include mq(netbook) {
+			figure {
+				float: left;
+				padding-right: 2rem;
+			}
+		}
+	}
+}
+.other-projects {
+	padding-top: 1rem;
+	h3 {
+		margin-bottom: 1.5rem;
+	}
+}
+
+@include mq(netbook) {
+	.project-row {
+		@include flexbox();
+	}
+	.foss-project {
+		@include flex(1);
+	}
+}
