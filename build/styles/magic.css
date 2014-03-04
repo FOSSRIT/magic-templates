@@ -1,0 +1,868 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font: 1.0em "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #D0D0D0;
+	background: #000000;
+	margin: 0px;
+    padding: 0px;
+	overflow-x: hidden;
+}
+a {
+	color: #8ec8f6;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+h1 {
+	font: 34px/100% "Muli Light", "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #ffffff;
+}
+h2 {
+	font: 30px/100% "Muli Light", "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #ffffff;
+}
+h3 {
+	font: 22px/100% "Muli Light", "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #ffffff;
+}
+
+h4 {
+	font: 18px/100% "Muli Light", "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #ffffff;
+}
+
+h5 {
+	font: 13px/100% "Muli Light", "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #ffffff;
+}
+
+p {
+	font: 0.8125em "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	text-shadow: 1px 1px rgba(0,0,0,0.9);
+	height: inherit;
+}
+.site_text {
+	font: 0.8125em "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0px;
+	text-shadow: 1px 1px rgba(0,0,0,0.9);
+}
+
+.read_more_text {
+	font: 0.8125em "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0px;
+	margin-top: -1px;
+	text-shadow: 1px 1px rgba(0,0,0,0.9);
+	text-decoration: none;
+}
+
+.read_more_text:hover {
+	text-decoration: underline;
+}
+
+.no_small_mobile {
+	display: block;
+}
+
+.no_small_mobile2 {
+	
+}
+
+.date {
+	float: right;
+	text-align: right;
+	width: 40px;
+}
+
+ul
+{
+    list-style-type: square;
+	padding: 5px;
+	margin: 10px;
+}
+
+.table_r0 {
+	background: rgba(128,128,128,0.3); 
+	width: 100%; 
+	padding-top: 5px; 
+	padding-bottom: 5px;
+}
+
+.table_r1 {
+	background: rgba(0,0,0,0.3); 
+	width: 100%; 
+	padding-top: 5px; 
+	padding-bottom: 5px;
+}
+
+#castle_svg_container {
+	width: 100%;
+	height: 550px;
+	overflow: hidden;
+	position: relative;
+	top: 0px;
+	
+	/* presumed height of 500 */
+}
+
+/************************************************************************************
+STRUCTURE
+*************************************************************************************/
+#facebook_sidebar {
+	position: relative;
+	top: 0px;
+}
+
+.social_img {
+	opacity: 0.0;
+	transition: opacity 500ms linear;
+}
+
+.social_img:hover {
+	opacity: 1.0;
+}
+
+#twittertweets {
+	background-color: rgba( 255,255,255,0.1); 
+	width: 336px; 
+	height: auto; 
+	padding-left: 10px; 
+	padding-right: 10px; 
+	position: relative; 
+	left: 10px;
+	top: -70px;
+}
+
+#castle {
+	z-index: -100;
+	position: relative;
+	top: 41px;
+	margin-left:auto;
+	margin-right: auto;
+	align-content:center;
+}
+
+#page_art {
+	z-index: -90;
+	position: relative;
+	top: -499px;
+	margin-left:auto;
+	margin-right: auto;
+	align-content:center;
+}
+
+#main_content_area {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+#pagewrap_abscontainer {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	overflow: visible;
+}
+
+#pagewrap {
+
+	width: 100%;
+	top: 51px;
+	position: relative;
+	overflow: visible;
+}
+#header {
+	height: 180px;
+	width: 100%;
+	overflow: visible;
+	display: block;
+	z-index: 300;
+}
+#content {
+	width: 700px;
+	float: left;
+	padding-top: 10px;
+}
+#sidebar {
+	float: right;
+	vertical-align: top;
+}
+#footer {
+	clear: both;
+}
+
+#rit_header {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 51px;
+	background: rgba(0,0,0,0);
+}
+
+.footer_text {
+	padding-top: 3px;
+	padding-right: 12px;
+	padding-left: 12px;
+	padding-bottom: 5px;
+	text-decoration: none;
+	font: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #666666;
+}
+
+.footer_links {
+	color: #999999;
+	text-decoration: underline;
+	padding-bottom: 20px;
+}
+
+.footer_links:hover {
+	text-decoration: none;
+}
+
+.particle_area {
+	overflow: hidden;
+    position: absolute; 
+    top: 51px;
+	left: 0px;
+    width: 100%;
+	background:#000;
+	border: 0px;
+	z-index: -500;
+}
+
+#rit_logo {
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index: 1000;
+}
+
+#rit_logo_mobile {
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index: 1000;
+	visibility: hidden;
+	width: 235px;
+}
+
+.fixed_left_column {
+	width:274px;
+	height: 223px; 
+	float: left; 
+	background: rgba(255,255,255,0.1);
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-right: 0px;
+	margin-top: 0px;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	clear:both;
+}
+
+.fixed_left_column3 {
+	width:175px;
+	height: 175px; 
+	float: left; 
+	background: rgba(255,255,255,0.1);
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-right: 0px;
+	margin-top: 0px;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 6px;
+	padding-bottom: 5px;
+	clear:both;
+}
+
+.outer_right_column {
+	overflow:hidden; 
+	margin-left: 0px; 
+	margin-right: 10px;
+	width: auto;
+	margin-bottom: 10px;
+	margin-top: 0px;
+	clear: right;
+}
+
+.outer_right_column2 {
+	overflow:hidden; 
+	margin-left: 0px; 
+	margin-right: 10px;
+	width: auto;
+	margin-bottom: 10px;
+	margin-top: 0px;
+	clear: right;
+	height: 185px;
+}
+
+.fixed_left_column2 {
+	width:274px;
+	height: 175px; 
+	float: left; 
+	background: rgba(255,255,255,0.1);
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-right: 0px;
+	margin-top: 0px;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	clear:both;
+}
+
+.inner_right_column {
+	background: #0015FF;
+	margin-left: 10px;
+	background: rgba(255,255,255,0.1);
+	padding: 5px;
+	height: 223px;
+}
+
+.inner_right_column2 {
+	background: #0015FF;
+	margin-left: 10px;
+	background: rgba(255,255,255,0.1);
+	padding: 5px;
+	height: 175px;
+}
+
+.inner_right_column3 {
+	background: #0015FF;
+	margin-left: 10px;
+	background: rgba(255,255,255,0.1);
+	padding: 5px;
+	height: 175px;
+}
+
+.full_row, .full_row_clear, .validation_area {
+	background: rgba(255,255,255,0.1);
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	width: auto;
+	clear: both;
+}
+
+.full_row {
+	background: rgba(255,255,255,0.1);
+	padding: 5px;
+}
+
+.full_row_clear {
+	background: none;
+	padding: 0px;
+}
+
+.validation_area {
+	position: relative;
+	top: -130px;
+}
+
+
+.mission_statement {
+	min-width: 100px; 
+	max-width: 65%; 
+	float:right;
+	padding-bottom: 10px;
+}
+.left_tile {
+	width:274px;
+	height: 75px; 
+	float: left; 
+	background: rgba(255,255,255,0.1);
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-right: 0px;
+	margin-top: 10px;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	clear: both;
+
+}
+
+.right_tile {
+	width: auto;
+	height: 117px; 
+	float: left; 
+	background: rgba(255,255,255,0.1);
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-right: 0px;
+	margin-top: 10px;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	clear: both;
+
+}
+
+.right_tile_top {
+	width: 100%;
+	height: 110px; 
+	float: left; 
+	background: rgba(255,255,255,0.1);
+	margin-left: 0px;
+	margin-bottom: 9px;
+	margin-right: 0px;
+	margin-top: 2px;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	clear: both;
+	overflow: hidden;
+	position: relative;
+}
+
+.read_more_large_fade {
+	background: none;
+	position: absolute;
+	top: 86px;
+	left: 0px;
+	width: 100%;
+	overflow: hidden;
+	height: 17px;
+}
+
+.read_more_large {
+	background: #252525;
+	height: 33px;
+	width: 100%;
+	position: absolute;
+	padding: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	top: 103px;
+	left: 0px;
+	overflow: visible;
+}
+
+.read_more_large_text {
+	float: right;
+	width: 70px;
+	height: 19px;;
+	background: #252525;
+	padding: 0px;
+	margin-top: -1px;
+	margin-right: -2px;
+	overflow: hidden;
+}
+
+.sidebar_fill {
+	width: auto;
+	height: auto;
+	background: rgba(255,255,255,0.1);
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+.glowhover {
+	-webkit-box-shadow: 0px 0px 0px #000000;
+    -moz-box-shadow: 0px 0px 0px #000000;
+    box-shadow: 0px 0px 0px #000000;
+	transition: box-shadow 200ms linear;
+	opacity: 0.3;
+	transition: opacity 200ms linear;
+}
+
+.glowhover:hover {
+   -webkit-box-shadow: 0px 5px 45px #ffffff;
+   -moz-box-shadow: 0px 5px 45px #ffffff;
+   box-shadow: 0px 0px 45px #ffffff;
+   opacity: 1.0;
+}
+
+.glowhover2 {
+	-webkit-box-shadow: 0px 0px 0px #000000;
+    -moz-box-shadow: 0px 0px 0px #000000;
+    box-shadow: 0px 0px 0px #000000;
+	transition: box-shadow 200ms linear;
+}
+
+.glowhover2:hover {
+   -webkit-box-shadow: 0px 5px 45px #ffffff;
+   -moz-box-shadow: 0px 5px 45px #ffffff;
+   box-shadow: 0px 0px 45px #ffffff;
+}
+
+.thumbnail {
+       width: 100px; 
+	   height: 100px; 
+	   float: left; 
+	   padding-right: 10px;
+}
+
+.thumbnail2 {
+       width: 100px; 
+	   height: 100px; 
+	   float: left; 
+	   padding-right: 10px;
+}
+
+.thumbnail3 {
+	width: 100px;
+	height: 100px;
+	padding-right: 10px;
+}
+
+.thumbnail4 {
+       width: 50px; 
+	   height: 50px; 
+	   float: left; 
+	   padding-right: 10px;
+}
+
+.thumbtile_left {
+	background: none;
+	float: left; 
+	height: auto; 
+	width: 54%; 
+	padding-right: 0px;
+}
+
+.thumbtile_right {
+	background: none;
+	float: left; 
+	height: auto; 
+	width: 62%; 
+	padding-right: 0px;
+}
+
+.partner_tile {
+	background: rgba(255,255,255,0.1);
+	float: left; 
+	height: auto; 
+	width: 100%; 
+	padding-right: 0px;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 980px or less */
+@media screen and (max-width: 98000px) {
+
+	#pagewrap {
+		width: 971px;
+		margin-left: auto ;
+  		margin-right: auto ;
+		top: 51px;
+	}
+	#content {
+		width: 575px;
+	}
+	#main_content_area {
+		padding-right: 0px;
+	}
+	
+	#sidebar {
+		width: 376px;
+	}
+	
+	#header {
+		width: 110%;
+		height: 180px;
+	}
+	
+	#research_footer {
+		display: block;
+	}
+	#background_images {
+		display: block;
+	}
+	#left_column {
+
+	}
+	#right_column {
+
+	}
+	#mission_statement {
+	}
+	.thumbtile_right {
+		width: 58%;
+	}
+}
+
+/* for 700px or less */
+@media screen and (max-width: 801px) {
+
+	#pagewrap {
+		width: auto;
+	}
+	#sidebar {
+		width: 100%;
+		float: none;
+	}
+	#content {
+		width: 100%;
+		float: none;
+	}
+	#rit_logo {
+		visibility:hidden;
+	}
+	#rit_logo_mobile {
+		visibility:visible;
+	}
+	
+	#header {
+		width: 100%;
+		padding-left: 0px;
+		height: 18px;
+	}
+	
+	#research_footer {
+		display: none;
+	}
+	#background_images {
+		display: block;
+	}
+	#main_content_area {
+		padding-right: 10px;
+	}
+	.mission_statement {
+		max-width: 65%;
+	}
+	#facebook_container {
+		display: none;
+	}
+	#twittertweets {
+		display: none;
+	}
+	#facebook_outer_container {
+		display: none;
+	}
+	#google_outer_container {
+		display: none;
+	}
+	#facebook_header {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 625px) {
+	.fixed_left_column {
+		width: auto;
+		height: auto;
+		float: none;
+		margin-right: 10px;
+		margin-bottom: 10px;
+	}
+	.outer_right_column {
+		clear:both;
+		width: auto;
+	}
+	.right_column {
+		margin-left: 10px;
+	}
+	.fixed_left_column2 {
+		width: auto;
+		float: none;
+		height: 161px;
+		margin-right: 10px;
+		margin-bottom: 10px;
+	}
+	.inner_right_column {
+		height: auto;
+	}
+	.inner_right_column2 {
+		height: 161px;
+		margin-bottom: 0px;
+		margin-top: 30px;
+	}
+	.left_tile {
+		width: auto;
+		margin-right: 10px;
+		margin-bottom: 10px;
+	}
+	h1 {
+	font: 24px/100% "Muli Light", "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	h2 {
+		font: 22px/100% "Muli Light", "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	h3 {
+		font: 18px/100% "Muli Light", "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	h4 {
+	font: 14px/100% "Muli Light", "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+
+	h5 {
+	font: 13px/100% "Muli Light", "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	.mission_statement {
+		max-width: 50%;
+	}
+	.no_small_mobile {
+		display: none;
+	}
+	
+}
+
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+
+	#pagewrap {
+		width: auto;
+	}
+	h1 {
+		font-size: 24px;
+	}
+	#sidebar {
+		
+	}
+	#no_very_small_mobile {
+		display: none;
+	}
+	#rit_logo {
+		visibility:hidden;
+	}
+	#rit_logo_mobile {
+		visibility:visible;
+	}
+	#header {
+		width: 100%;
+		overflow: visible;
+		height: 18px;
+	}
+	#research_footer {
+		display: none;
+	}
+	#background_images {
+		display: none;
+	}
+	#main_content_area {
+		padding-right: 10px;
+	}
+	.fixed_left_column {
+		width: auto;
+		float: none;
+		margin-right: 10px;
+	}
+	.right_column {
+		margin-left: 10px;
+		margin-top: 10px;
+	}
+	.mission_statement {
+		max-width: 100%;
+	}
+	.fixed_left_column3 {
+		width: auto;
+		height: auto;
+		margin-right: 10px;
+	}
+	.outer_right_column2 {
+		width: auto;
+		height: auto;
+		clear: both;
+	}
+	.inner_right_column3 {
+		width: auto;
+		height: auto;
+		margin-bottom: 10px;
+	}
+	.thumbnail {
+		width: 20%;
+		height: auto;
+	}
+	.thumbnail2 {
+		width: 22%;
+		height: auto;
+	}
+	.thumbnail4 {
+		width: 22%;
+		height: auto;
+		max-height: 50px;
+		max-width: 50px;
+	}
+	.thumbtile_left {
+		
+		width: 70%;
+		padding-right: 5px;
+	}
+	.thumbtile_right {
+				
+		width: 70%;
+		padding-right: 5px;
+		font-size: 10px;
+	}
+	.validation_area {
+		top: -62px;
+	}
+	.no_small_mobile2 {
+		display: none;
+	}
+}
+
+
+/* border & guideline (you can ignore these) */
+#content {
+	background: rgba(0,0,0,0.3);
+	z-index: 1005;
+}
+#sidebar {
+	background: rgba(0,0,0,0.3);
+}
+#header, #content, #sidebar {
+	margin-bottom: 10px;
+}
+
+#footer {
+	height: auto;
+}
+
+#magic_footer {
+	width: 100%;
+	position: relative;
+	z-index: 500;
+	height: 100px;
+	top: 45px;
+	line-height: 1.0;
+	background: rgba(255,255,255,0.10);
+	padding-bottom: 60px;
+
+}
+
+#research_footer {
+	padding-left: 10px;
+}
+
+#content, #sidebar {
+	border: solid 0px #ccc;
+}
+#pagewrap {
+	
+}

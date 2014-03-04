@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<head>
+<!--   {% block head_title %}
+    <title> {{ title }} | RIT MAGIC Center | FOSS @ MAGIC</title>
+  {% endblock %} -->
+  <meta name="description" content="{% block meta_description %} {{ page_description }} {% endblock %}">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:site_name" content="The RIT MAGIC Center">
+  <meta property="og:image" content="http://magic.rit.edu/theme_images/MAGIC_CENTER_LOGO.jpg">
+  <meta property="og:title" content="RIT MAGIC Center">
+  <meta property="og:url" content="http://magic.rit.edu/">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+  <script src="js/libs/modernizr.js"></script><!--[if lt IE 9]> <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script> <![endif]-->
+  <link rel="stylesheet" type="text/css" href="../styles/magic.css">
+  <link rel="stylesheet" type="text/css" href="../styles/nav_menu.css">
+  <link rel="stylesheet" type="text/css" href="../styles/flippers.css">
+  <link rel="stylesheet" href="style/style.min.css">
+  <script src="../scripts/castle_creator.js" type="text/javascript"></script>
+  <script type="text/javascript" src="../scripts/flipper.js"></script>
+  <script type="text/javascript" src="../scripts/animator.js"></script>
+  <script type="text/javascript" src="../scripts/particle_manager.js"></script>
+  <script src="../scripts/mobile_menu.js" type="text/javascript"></script>
+  <style>
+    div#content {
+      padding: 1em;
+    }
+  </style>
+
+</head>
+<body id="fossbox">
+  <!-- RIT logo -->
+  <div id="rit_logo"><a href="http://www.rit.edu/"><img src="../theme_images/rit_logo_bar.png" alt="RIT logo"></a></div>
+  <div id="rit_logo_mobile"><a href="../main/index.html"><img id="magic-logo" src="../theme_images/magic_logo_for_mobile.png" alt="MAGIC logo"></a><span>@</span><a href="http://www.rit.edu/"><img id="rit_mobile_logo_2" src="../theme_images/rit_logo_for_mobile.png" alt="RIT logo"></a></div><!-- RIT institute header, modded for mobile and small magic nav -->
+  <div id="rit_header">
+    <div id="metanav">
+      <div id="mobile_nav_menu"><a href="#" onclick="toggle_mobile_menu();" class="nav_text"><img style="float: right; padding-left: 5px;" width="40" height="40" alt="Mobile Navigation Menu" src="../theme_images/menu_bar_icon.png"></a></div>
+      <div id="metanav_right">
+        <ul>
+          <li id="metaritdirectories"><a href="http://www.rit.edu/directories/">Directories</a></li>
+        </ul>
+        <div id="metaritsearchdiv">
+          <form id="metasearchform" action="http://www.rit.edu/search/" method="get" name="metasearchform">
+            <div class="row collapse">
+              <div class="large-8 columns">
+                <input id="rit_input" maxlength="250" name="q" type="text">
+              </div>
+              <div class="large-1 columns"><em id="rit_search_submit" class="foundicon-search"></em></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- particle alrea and general hackery -->
+  <canvas id="ParticleArea" width="300" height="550" class="particle_area"></canvas>
+  <div id="ParticleAreaOld" style="height: 550px; display: none;" class="particle_area">
+    <div id="ParticleFade" style="position: absolute; height: 157px; width:100%; top: 393px; display: none; background-image:url(../theme_images/fade.png); background-repeat: repeat;"></div>
+  </div><!-- background images (castle and custom artwork) -->
+  <div id="background_images" style="width: 100%; height: 900px; overflow: hidden;">
+    <div id="castle" style="top: 51px; background: none; width: auto; height: 550px; overflow: hidden; background-repeat: no-repeat;">
+      <svg id="castle_svg_container">                           </svg>
+    </div>
+    <div id="page_art" style="background-image: url(../theme_images/elf.png); height: 800px; width: 482px; left: 107px; overflow: hidden; background-repeat: no-repeat;"></div>
+  </div>
+  <!-- main page containeer, allows things to extend all over the edges of things) -->
+  <div id="pagewrap_abscontainer"><!-- aesthetic nav bar, real nav is in the main header -->
+    <div id="nav_header"></div><!-- actual page -->
+    <div id="pagewrap"><!-- navigation bar -->
+      <div id="header">
+        <script type="text/javascript" src="../scripts/nav_menu.js"></script>
+      </div>
+      <div id="main_content_area">
+        <div id="content">
+<h1>Our History</h1>
+<p>OLPC was the Trojan Horse to Open Source for Professor Stephen Jacobs,
+director of RIT’s Lab for Technological Literacy (LTL), the entity in
+which the <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#70;&#x4f;&#x53;&#83;&#64;&#77;&#x41;&#x47;&#x49;&#x43;">&#70;&#x4f;&#x53;&#83;&#64;&#77;&#x41;&#x47;&#x49;&#x43;</a> (then <a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#70;&#x4f;&#83;&#83;&#64;&#82;&#73;&#84;">&#70;&#x4f;&#83;&#83;&#64;&#82;&#73;&#84;</a>) was originally born. Intrigued
+by the OLPC Jacobs acquired three OLPC XO 1.0 laptops in 2007 via the
+first &quot;Give One, Get One&quot; program. His intent was to make them available
+to students for experimentation and to possibly create a seminar course
+in developing games for the platform.</p>
+<p>The LTL also ran a campus OLPC Users Group with then lab associate <a href="http://www.linkedin.com/profile/view?id=4819406&amp;authType=NAME_SEARCH&amp;authToken=sZFm&amp;locale=en_US&amp;srchid=42971393765003805&amp;srchindex=1&amp;srchtotal=35&amp;trk=vsrp_people_res_name&amp;trkInfo=VSRPsearchId:42971393765003805,VSRPtargetId:4819406,VSRPcmpt:primary">Eric
+Grace</a>
+from January to June 2008. <a href="http://wiki.laptop.org/go/User:FGrose">Frederick
+Grose</a>, an active OLPC community
+volunteer, joined the LTL campus users group meetings and worked with an
+<a href="http://lists.laptop.org/pipermail/devel/2008-March/011806.html">RIT usability
+class</a>
+to assess OLPC usability in 2008. He also made a generous donation to
+the lab to fund some early OLPC work.</p>
+<p>The first OLPC seminar course was scheduled for the spring quarter of
+the 2008-2009 academic year through the RIT Honor’s program. To support
+the class, Jacobs and Grace decided to create a community wide <a href="http://wiki.laptop.org/go/OLPC_Rochester,_NY">users’
+group</a> in January 2009
+around the OLPC to support the class. Key members of the group were
+Grace, Grose and <a href="http://karlierobinson.com/about-me">Karlie Robinson</a>,
+an entrepreneur who runs the Open Source distribution site
+<a href="http://www.ondisk.com/">OnDisk.com</a>.</p>
+<p>Robinson, a long-time Open Source advocate, connected the class to Sugar
+Labs’ Math 4 initiative and David Nalley in the Fedora Community, which
+donated 25 XO laptops to Jacobs for use in Sugar development in general,
+and Math software and games to support 4th grade curricula in specific.</p>
+<p>The course was offered in March 2009, with Jacobs and Grace co-teaching
+and developing the materials and Grose and Robinson as FOSS community
+representatives who visited the class regularly; roles they reprised in
+the next two iterations of the course. <a href="http://www.linkedin.com/profile/view?id=9229957&amp;authType=NAME_SEARCH&amp;authToken=lqTB&amp;locale=en_US&amp;srchid=42971393765668394&amp;srchindex=1&amp;srchtotal=13&amp;trk=vsrp_people_res_name&amp;trkInfo=VSRPsearchId:42971393765668394,VSRPtargetId:9229957,VSRPcmpt:primary">Mel
+Chua</a>(then
+Community Engineer for Red Hat), guest lectured for us, beginning a long
+relationship with RIT&#39;s FOSS folk. The class also attended regular user
+group meetings to meet with community members and discuss projects and
+techniques. <a href="http://activitycentral.com/company/people">David Farning</a>
+dropped by RIT during the summer to meet with us. After the first course
+we moved to RIT&#39;s Student Innovation Hall.</p>
+<p>With the second iteration of the seminar course Red Hat paid their first
+official visit by sending <a href="http://www.linkedin.com/in/gregdek">Greg
+DeKoenigsberg</a> (then Senior
+Community Architect for Red Hat), Mel, <a href="http://www.linkedin.com/in/lukemacken">Luke
+Macken</a> (an RIT alum) and
+Macken&#39;s former college roommate, <a href="http://www.linkedin.com/in/decause">Remy
+Decausemaker</a>, who tagged along for
+the visit. In Winter Quarter, 2009, Remy DeCausemaker, RIT alum, joined
+RIT as an Alumni Fellow. In February of 2010 <a href="http://foss.rit.edu/audio/play/56">Richard
+Stallman</a> came to speak and <a href="http://www.ustream.tv/recorded/6561388">Walter
+Bender</a> paid us the first of his
+two visits that May. That Spring we paid our <a href="http://opensource.com/education/10/7/olpc-and-fossrit-education-innovation-open-source-way">first visit to
+Boston</a>
+to visit OLPC and Red Hat&#39;s Westford offices.</p>
+<p>But what was most important in the academic year of 2009-2010 was that
+the second offering of the seminar is what began the true heart of our
+program. One of the games developed in the course was Fortune Hunter. At
+the end of the Winter quarter course members of the team asked to have a
+co-op created for them to continue working on it. These students who
+were pursuing their co-op in Spring of 2010 also came to the third class
+offering, on their own time, to mentor students and recruit them to join
+Fortune Hunter. Thus began what we call the <a href="http://opensource.com/education/10/3/course-co-op-lifecycle-openinnovationrit">“Course to Co-Op
+Lifecycle”</a>;
+students who become proficient in Open Source through our classes then
+become eligible for part-time or co-op work when opportunities become
+available. That summer we offered the first of three
+<a href="http://teachingopensource.org/index.php/POSSE">POSSE</a> sessions we would
+run in &#39;10, &#39;11 and &#39;12.</p>
+<p>In August of 2010 we began talking with <a href="http://www.linkedin.com/in/spotrh">Tom
+Callaway</a> of Red Hat, (then Fedora
+Engineering Manager, now University Outreach and Fedora Special
+Projects) about formal sponsorship from Red Hat for our program. Through
+his hard work and the generosity of <a href="http://www.linkedin.com/profile/view?id=343346&amp;authType=NAME_SEARCH&amp;authToken=_BvK&amp;locale=en_US&amp;srchid=42971393768195908&amp;srchindex=1&amp;srchtotal=1&amp;trk=vsrp_people_res_name&amp;trkInfo=VSRPsearchId:42971393768195908,VSRPtargetId:343346,VSRPcmpt:primary">Brian
+Stevens</a>,
+<a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#x46;&#79;&#83;&#83;&#64;&#x4d;&#65;&#x47;&#x49;&#x43;">&#x46;&#79;&#83;&#83;&#64;&#x4d;&#65;&#x47;&#x49;&#x43;</a> has been sponsored by Red Hat since 2011, allowing RIT to
+hire Remy full-time as our Lab Director and FOSS evangelist. (though he
+prefers to be known as our Open Sourcer). We added a second course,
+Project in FOSS Development in 2011 and will be offering the first
+interdisciplinary <a href="http://magic.rit.edu/fiss/minor">minor</a> in Free and
+Open Source Software and Free Culture in Fall of 2014.</p>
+<p>Along the way we&#39;ve done a few things including...</p>
+<ul>
+<li><p>50+ hackathons regional get-togethers, birds-of-a-feather gatherings
+and internationally renowned speakers such as Richard Stallman, Hal
+Abelson and Walter Bender</p>
+</li>
+<li><p>Professional development opportunities for faculty, staff and
+graduate students including three annual week-long instances of
+<a href="http://teachingopensource.org/index.php/POSSE">POSSE</a></p>
+</li>
+<li><p>Outreach to other Colleges and Universities, K-12 schools and
+community organizations like <a href="http://www.meetup.com/HackshackersROC/">Hacks/Hackers
+Rochester</a> and the <a href="http://opensource.com/education/11/5/games-life-girl-scouts-games-and-open-source-way">Girl
+Scouts</a></p>
+</li>
+<li><p>30+ Undergraduate Research Fellowships, Co-Ops and part-time student
+positions doing humanitarian project work including nation-building
+work with UNICEF’s Innovation Lab in Kosovo and Educational Games
+for OLPC and Sugar Labs downloaded around the world and honored at
+the White House.</p>
+</li>
+<li><p>Applied research projects for RIT, Red Hat, Mozilla Open Badges,
+OLPC and Sugar Labs</p>
+</li>
+</ul>
+<p>For a full timeline of our efforts, visit the <a href="http://yacht.rit.edu/timeline/summary.html#2013"> activity report.</a></p>
+
+        </div>
+        <!-- end content -->
+        <div id="sidebar">
+<div id="key-personnel" class="full_row_clear">
+  <h3>Key Research Personnel</h3>
+  <div class="profile"><img src="../people/affiliates/stephen_jacobs.jpg" alt="profile_pic" class="thumbnail">
+    <article class="thumbtile_right">
+      <h4>Stephen Jacobs</h4>
+      <ul class="credentials">
+        <li>Associate Director </li>
+        <li>RIT MAGIC Center </li>
+        <li>Professor, School of Interactive Games &amp; Media, GCCIS </li>
+        <li>Visiting Scholar, National Center for the History of Electronic Games</li>
+      </ul>
+    </article>
+  </div>
+  <div class="profile"><img src="../people/affiliates/remy_decausemaker.jpg" alt="profile_pic" class="thumbnail">
+    <article class="thumbtile_left">
+      <h4>Remy DeCausemaker</h4>
+      <ul class="credentials"> 
+        <li>Open Source Research Coordinator </li>
+        <li>MAGIC FOSS Evangelist</li>
+        <li>RIT MAGIC Center</li>
+      </ul>
+    </article>
+  </div>
+</div>
+<div id="special-thanks" class="full_row_clear">
+  <h3>Special Thanks &amp; Recognition</h3>
+  <div class="profile"><img src="../people/partners/red_hat.jpg" alt="profile_pic" class="thumbnail">
+    <div class="thumbtile_left">
+      <h4>Red Hat, Inc.</h4>
+      <p>The FOSS@MAGIC initiative, and our work in both curricular development and events and engagement opportunities for FOSS education, would not be possible without the generous support of Red Hat, Inc.</p>
+    </div>
+  </div>
+</div>
+<div id="partners" class="full_row_clear">
+  <h3>Partners &amp; Collaborators</h3>
+  <p>In addition to the <a href="../people/index.html">partners of the MAGIC Center</a> that the FOSS@MAGIC initiative draws upon as a part of its work, the initiative also works with several partners that are distinctive to the particular focus of our work in free and open source software:</p>
+  <article class="partner">
+    <h4><a href="http://barcamproc.org" target="top">BarcampROC</a></h4>
+    <p>In the spirit of FooCamp, BarCamp is an ad-hoc gathering born from the desire for people to share and learn in an open environment. It is an intense event with discussions, demos, and interaction from attendees. All attendees must give a demo, a session, or help with one. All presentations are scheduled the day they happen. Prepare in advance, but come early to get a slot on the wall. Presenters are responsible for making sure that notes/slides/audio/video of their presentations are published on the web for the benefit of all and those who can't be present. Anyone with something to contribute or with the desire to learn is welcome and invited to join. Venture over to the BarcampRochester tag on Flickr for photos from the previous three events!</p>
+  </article>
+  <article class="partner">
+    <h4><a href="http://csh.rit.edu" target="top">Computer Science House (CSH)</a></h4>
+    <p>Computer Science House, founded in 1976, is one of the oldest and most popular Special Interest Houses at the Rochester Institute of Technology in Rochester, NY. Located on the third floor of the dormitory Nathaniel Rochester Hall, CSH provides a revolutionary living environment for over fifty students and many members who live off-floor.</p>
+    <p>In addition to RIT's standard residence hall facilities, CSH has nine, unique multi-purpose rooms, which have been filled with technical and material resources for the exclusive use of members 24/7. CSH's computing resources include e-mail, newsgroup, database and web space services, a floor-wide network, and a multitude of servers and workstations–all maintained and operated by members. Hands-on learning is emphasized in order to give members a significant advantage in the business world.     </p>
+  </article>
+  <article class="partner">
+    <h4><a href="http://fedoraproject.org" target="top">Fedora</a></h4>
+    <p>Fedora is a Linux-based operating system that showcases the latest in free and open source software. Fedora is always free for anyone to use, modify, and distribute. It is built by people across the globe who work together as a community: the Fedora Project. The Fedora Project is open and anyone is welcome to join.</p>
+  </article>
+  <article class="partner">
+    <h4><a href="http://interlockroc.org" target="top">InterlockROC</a></h4>
+    <p>Welcome to Interlock Rochester; the first and only hackerspace in Rochester, NY. Our goal is to provide members with a place to share, learn, and develop their ideas in a community environment. Members have access to our space 24/7 and can use it to store their projects, hold meetings, attend classes, or just hang out with other people doing extremely interesting stuff.</p>
+    <p>Interlock Rochester is an incorporated Not For Profit organization working to obtain official status as a 501(c)(3) Federal Tax Exempt organization. We started in October of 2009 by people who saw the need to find a place where they could develop their ideas together and Rochester was able to offer the right kind of locations and the right type of people to fill it. The group was officially incorporated on December 1, 2009 and has begun the long process of becoming a Federally recognized tax excempt organization.</p>
+  </article>
+  <article class="partner">
+    <h4><a href="http://wiki.laptop.org" target="top">OLPC</a></h4>
+    <p>The One Laptop per Child non-profit develops a low-cost laptop—the "XO Laptop"—to revolutionize how we educate the world's children. Our mission is to provide educational opportunities for the world's poorest children by giving each child a rugged, low-cost, low-power, connected laptop; and software tools and content designed for collaborative, joyful, self-empowered learning.</p>
+  </article>
+  <article class="partner">
+    <h4><a href="http://wiki.laptop.org/go/OLPCorps_Africa_Rochester_Institute_Of_Technology_Uganda" target="top">OLPCorps Africa</a></h4>
+    <p>The Rochester Institute of Technology (RIT) team will be running an OLPC workshop at Kiira Primary School in Jinja, a rural district in Eastern Uganda. The nine week workshop from June 22 to August 21, 2009 (during the school’s second term), will be targeted towards the entire 6th grade stream (129 students, ages 10-12). The all speak English. RIT Team Members (all RIT students):</p>
+    <p>Deana Brown: M.S. in Information Technology graduate student, currently abroad completing her thesis at the University of Cape Town, in the area of Information and Communication Technologies for Development (ICT4D). She holds a Bachelor in Computer Science – Mathematics and Spanish and will serve at the team lead.</p>
+    <p>Ihudiya Ogburu: B.S. in Information Technology senior undergraduate student specializing in web design and application development programming. Past technology instructor at Internal Drive Camps. She will serve as the programming coordinator.</p>
+    <p>Renee Baltimore: M.S. in Computer Science graduate student specializing in Artificial Intelligence. She has worked three years as a software developer and lead software engineer at Networking Systems Solutions. She holds a B.S. in Computer Science with Electronics and will serve as the technical lead.</p>
+  </article>
+  <article class="partner">
+    <h4><a href="http://www.pen.ntid.rit.edu/welcome.php" target="top">PEN</a></h4>
+    <p>The Postsecondary Education Network-International (PEN-International), a multinational partnership of colleges and universities worldwide, was created in 2001 through grants funded by The Nippon Foundation of Japan. Its goal is to improve and expand postsecondary education for deaf and hard-of-hearing students around the world by sharing educational technology and conducting faculty development and training, particularly in developing countries.</p>
+  </article>
+  <article class="partner">
+    <h4><a href="http://wiki.sugarlabs.org/go/Welcome_to_the_Sugar_Labs_wiki" target="top">Sugar Labs</a></h4>
+    <p>The mission of Sugar Labs® is to produce, distribute, and support the use of the Sugar learning platform; it is a support base and gathering place for the community of educators and developers to create, extend, teach, and learn with the Sugar learning platform.  Sugar is based on the following principles: (1) everyone is a teacher and a learner; (2) humans by their nature are social beings; (3) humans by their nature are expressive; (4) you learn through doing; and (5) love is a better master than duty.</p>
+  </article><!-- end partners -->
+</div>
+<div id="publications" class="full_row_clear">
+  <h3>Related Publications</h3>
+  <article>
+    <h5>Undergraduate Research Symposium Projects, Presentations &amp; Downloads</h5>
+    <ul>
+      <li class="site_text"><a href="files/OVCPaper.pdf" target="top">Open Video Chat</a></li>
+      <li class="site_text"><a href="files/Open_Video_Chat_Presentation.pdf" target="top">Open Video Chat Presentation</a></li>
+      <li class="site_text"><a href="files/GameEnginePaper.pdf" target="top">Fortune Hunter Engine Paper</a></li>
+      <li class="site_text"><a href="files/Game_and_Art_Engine.pdf" target="top">Fortune Hunter Game &amp; Animation Engine Presentation</a></li>
+    </ul>
+  </article>
+  <article>
+    <h5>Additional Papers &amp; Presentations</h5>
+    <ul>
+      <li class="site_text"><a href="http://teachingopensource.org/index.php/TOSS09" target="top">Round Table on curriculum </a>at Teaching Open Source Summit</li>
+      <li class="site_text"><a href="http://www.hfoss.org/hfoss2010/?q=node/10" target="top">HFOSS Symposium Round Table     </a></li>
+      <li class="site_text"><a href="files/Open_Source_Software_Research_Mini_Summit.pdf" target="top">Open Source Software Mini-Summit</a></li>
+      <li class="site_text"><a href="http://www.youtube.com/watch?v=fZxI2ZqSyrA&amp;feature=youtu.be" target="top">RemyD at TEDx Buffalo</a></li>
+      <li class="site_text"><a href="files/connectology.ppt" target="top">Connectology 2011</a></li>
+      <li class="site_text"><a href="files/CIVX Capitol Camp 2010.odp" target="top">CIVX CapitolCamp 2011</a></li>
+      <li class="site_text"><a href="files/wlny11_0.pdf" target="top">CIVX WeLiveNY Summit</a></li>
+    </ul>
+  </article>
+</div>
+        </div>
+        <!-- end sidebar -->
+        <div id="footer">&nbsp;</div>
+      </div>
+    </div><!-- footer and legalese -->
+    <div id="magic_footer">
+      <script type="text/javascript" src="../scripts/footer.js"></script>
+    </div>
+  </div>
+</body>
+<script src="js/libs/jquery.js"></script>
+<script src="js/main.js"></script></html>
