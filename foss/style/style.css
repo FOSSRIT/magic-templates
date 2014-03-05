@@ -1,3 +1,7 @@
+#main_content_area.no-sidebar #content {
+  width: 100%;
+}
+
 #fossbox p, #fossbox li {
   font-size: 1rem;
   line-height: 1.3;
@@ -227,4 +231,78 @@
     -ms-flex: 1;
     flex: 1;
   }
+}
+.orange {
+  color: #f26322;
+}
+
+#minor-announcement {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+#minor-announcement hgroup h2 {
+  font-size: 2.25rem;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+}
+#minor-announcement hgroup h3 {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+#minor-leadin {
+  font-size: 1.125rem !important;
+  margin-bottom: 1.75rem !important;
+}
+
+#courses h3 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+#courses h4 {
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 0.75rem;
+  min-height: 3rem;
+}
+#courses h5 {
+  line-height: 1.3;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+@media only screen and (min-width: 768px) {
+  #courses .flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  #courses .flex section {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  #courses .flex section:first-child {
+    padding-right: 1rem;
+  }
+  #courses .flex section:last-child {
+    padding-left: 1rem;
+  }
+}
+#courses ul {
+  margin: 0;
+}
+#courses li {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+#minor-footer li {
+  max-width: 35rem;
 }

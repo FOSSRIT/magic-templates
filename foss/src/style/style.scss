@@ -2,6 +2,10 @@
 @import "pieces/vars";
 @import "pieces/mixins";
 
+#main_content_area.no-sidebar #content {
+	width: 100%;
+}
+
 #fossbox {
 	p, li {
 		font-size: 1rem;
@@ -184,3 +188,4 @@
 }
 
 @import "pages/projects";
+@import "pages/minor-announcement";

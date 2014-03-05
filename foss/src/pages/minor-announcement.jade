@@ -1,0 +1,103 @@
+include ../html/jade-helpers.jade
+!!! 5
+
+head
+  title RIT MAGIC Center Projects | FOSS @ MAGIC
+  meta(name="description", content="description")
+  include ../html/head.jade
+
+body#fossbox
+  include ../html/global-header.jade
+
+  include ../html/particle-area.jade
+
+  <!-- main page containeer, allows things to extend all over the edges of things) -->
+  div#pagewrap_abscontainer
+
+    <!-- aesthetic nav bar, real nav is in the main header -->
+    div#nav_header
+
+    <!-- actual page -->
+    div#pagewrap
+      <!-- navigation bar -->
+      div#header
+        script(type="text/javascript", src="../scripts/nav_menu.js")
+      div#main_content_area.no-sidebar
+        div#content
+          div#minor-announcement
+            hgroup
+              h2 New Minor in Free and Open Source Software and Free Culture
+              h3 Stephen Jacobs, Amit Ray, Jonathan Schull, RIT
+
+            p#minor-leadin The minor is designed to allow any student across the institute to become a Free and Open Source Software (FOSS) and Free Culture (FC) contributor, project leader, community manager and/or departmental resource for other students and faculty.
+
+            section#courses
+              h3 Courses
+              div.flex
+                //- GCCIS
+                section
+                  h4 B. Thomas Golisano College of Computing
+                  div.required-courses
+                    ul
+                      li
+                        h5 Humanitarian Free and Open Source Software Development
+                        p Humanitarian Free and Open Source Software Development introduces students to processes, practices, tools and technologies of the FOSS community. It’s where they make their first contributions and work on their first projects. These projects generally require multidisciplinary teams, so students lacking strong programming skills can contribute
+                      li
+                        h5 Legal and Business Aspects of FOSS andFree Culture
+                        p Legal and Business Aspects of FOSS examines reactions to copyright from Copyleft and Creative Commons, the range of FOSS Licenses. It takes a look at FOSS and Free Culture business practices in general and at examples and case studies of specific corporations.
+                  div.pick-one
+                    ul
+                      li
+                        h5 Software Development on Linux Systems
+                  div.electives
+                    ul
+                      li
+                        h5 Project in FOSS Development
+                      li
+                        h5.orange Computer System Forensics
+                      li
+                        h5.orange Foundations of Mobile Design
+                //- COLA
+                section
+                  h4 College of Liberal Arts
+                  div.required-courses
+                    ul
+                      li
+                        h5 Free and Open Source Culture
+                        p Humanitarian Free and Open Source Software Development introduces students to processes, practices, tools and technologies of the FOSS community. It’s where they make their first contributions and work on their first projects. These projects generally require multidisciplinary teams, so students lacking strong programming skills can contribute.
+                  div.pick-one
+                    ul
+                      li
+                        h5 Technical Writing
+                        p Depending on their individual abilities and interests, students will either take the Linux Systems course to learn about packaging, distribution, revision and community/contributor management or take Technical Writing as it’s a skill set contributor communities often lack.
+                  div.electives
+                    ul
+                      li
+                        h5 Text &amp; Code
+                        p Text and Code explores innovative and evolving questions and practices of text and code in literature, linguistics, creative writing, geospatial mapping, locative and interactive media. Students use FOSS Tools to create Free Culture works.
+                      li
+                        h5.orange Introduction to Natural Language Processing
+                      li
+                        h5.orange Language Technology
+
+            footer#minor-footer
+              p Students must take one elective course from an approved list. Approved electives must use FOSS and/or FC tools or communities as part of the instructional model for the course.
+
+              p Of particular note are the <span class="orange">orange courses</span>:
+              ul
+                li The Liberal Arts "Language" courses are part of a collection of five in "Human Language Technology and Computational Linguistics” that use NLTK and other FOSS tools
+                li The computing courses, Computer Systems Forensics and Foundations of Mobile Design which are advanced courses from other computing degree programs at RIT
+
+              p The rationale for including courses like these within the minor is that it allows the students to act as resources in those courses for other students and/or the faculty member to engage with if they want to participate in the existing community to squash bugs and/or fork the tool for new development within the course.
+
+              p As the minor is offered over time, more of these types of courses from other disciplines around campus will be added to the list.
+
+        //- aside#sidebar
+        footer#footer &nbsp;
+
+
+    <!-- footer and legalese -->
+    div#magic_footer
+      script(type="text/javascript", src="../scripts/footer.js")
+include ../html/foot.jade
+</html>

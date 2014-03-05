@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<head>
+  <title>RIT MAGIC Center Projects | FOSS @ MAGIC</title>
+  <meta name="description" content="description">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:site_name" content="The RIT MAGIC Center">
+  <meta property="og:image" content="http://magic.rit.edu/theme_images/MAGIC_CENTER_LOGO.jpg">
+  <meta property="og:title" content="RIT MAGIC Center">
+  <meta property="og:url" content="http://magic.rit.edu/">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+  <script src="js/libs/modernizr.js"></script><!--[if lt IE 9]> <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script> <![endif]-->
+  <link rel="stylesheet" type="text/css" href="../styles/magic.css">
+  <link rel="stylesheet" type="text/css" href="../styles/nav_menu.css">
+  <link rel="stylesheet" type="text/css" href="../styles/flippers.css">
+  <link rel="stylesheet" href="style/style.css">
+  <script src="../scripts/castle_creator.js" type="text/javascript"></script>
+  <script type="text/javascript" src="../scripts/flipper.js"></script>
+  <script type="text/javascript" src="../scripts/animator.js"></script>
+  <script type="text/javascript" src="../scripts/particle_manager.js"></script>
+  <script src="../scripts/mobile_menu.js" type="text/javascript"></script>
+</head>
+<body id="fossbox"><!-- RIT logo -->
+  <div id="rit_logo"><a href="http://www.rit.edu/"><img src="../theme_images/rit_logo_bar.png" alt="RIT logo"></a></div>
+  <div id="rit_logo_mobile"><a href="../main/index.html"><img id="magic-logo" src="../theme_images/magic_logo_for_mobile.png" alt="MAGIC logo"></a><span>@</span><a href="http://www.rit.edu/"><img id="rit_mobile_logo_2" src="../theme_images/rit_logo_for_mobile.png" alt="RIT logo"></a></div><!-- RIT institute header, modded for mobile and small magic nav -->
+  <div id="rit_header">
+    <div id="metanav">
+      <div id="mobile_nav_menu"><a href="#" onclick="toggle_mobile_menu();" class="nav_text"><img style="float: right; padding-left: 5px;" width="40" height="40" alt="Mobile Navigation Menu" src="../theme_images/menu_bar_icon.png"></a></div>
+      <div id="metanav_right">
+        <ul>
+          <li id="metaritdirectories"><a href="http://www.rit.edu/directories/">Directories</a></li>
+        </ul>
+        <div id="metaritsearchdiv">
+          <form id="metasearchform" action="http://www.rit.edu/search/" method="get" name="metasearchform">
+            <div class="row collapse">
+              <div class="large-8 columns">
+                <input id="rit_input" maxlength="250" name="q" type="text">
+              </div>
+              <div class="large-1 columns"><em id="rit_search_submit" class="foundicon-search"></em></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div><!-- particle alrea and general hackery -->
+  <canvas id="ParticleArea" width="300" height="550" class="particle_area"></canvas>
+  <div id="ParticleAreaOld" style="height: 550px; display: none;" class="particle_area">
+    <div id="ParticleFade" style="position: absolute; height: 157px; width:100%; top: 393px; display: none; background-image:url(../theme_images/fade.png); background-repeat: repeat;"></div>
+  </div><!-- background images (castle and custom artwork) -->
+  <div id="background_images" style="width: 100%; height: 900px; overflow: hidden;">
+    <div id="castle" style="top: 51px; background: none; width: auto; height: 550px; overflow: hidden; background-repeat: no-repeat;">
+      <svg id="castle_svg_container">                           </svg>
+    </div>
+    <div id="page_art" style="background-image: url(../theme_images/elf.png); height: 800px; width: 482px; left: 107px; overflow: hidden; background-repeat: no-repeat;"></div>
+  </div><!-- main page containeer, allows things to extend all over the edges of things) -->
+  <div id="pagewrap_abscontainer"><!-- aesthetic nav bar, real nav is in the main header -->
+    <div id="nav_header"></div><!-- actual page -->
+    <div id="pagewrap"><!-- navigation bar -->
+      <div id="header">
+        <script type="text/javascript" src="../scripts/nav_menu.js"></script>
+      </div>
+      <div id="main_content_area" class="no-sidebar">
+        <div id="content">
+          <div id="minor-announcement">
+            <hgroup>
+              <h2>New Minor in Free and Open Source Software and Free Culture</h2>
+              <h3>Stephen Jacobs, Amit Ray, Jonathan Schull, RIT</h3>
+            </hgroup>
+            <p id="minor-leadin">The minor is designed to allow any student across the institute to become a Free and Open Source Software (FOSS) and Free Culture (FC) contributor, project leader, community manager and/or departmental resource for other students and faculty.</p>
+            <section id="courses">
+              <h3>Courses</h3>
+              <div class="flex">
+                <section>
+                  <h4>B. Thomas Golisano College of Computing</h4>
+                  <div class="required-courses">
+                    <ul>
+                      <li>
+                        <h5>Humanitarian Free and Open Source Software Development</h5>
+                        <p>Humanitarian Free and Open Source Software Development introduces students to processes, practices, tools and technologies of the FOSS community. It’s where they make their first contributions and work on their first projects. These projects generally require multidisciplinary teams, so students lacking strong programming skills can contribute</p>
+                      </li>
+                      <li>
+                        <h5>Legal and Business Aspects of FOSS andFree Culture</h5>
+                        <p>Legal and Business Aspects of FOSS examines reactions to copyright from Copyleft and Creative Commons, the range of FOSS Licenses. It takes a look at FOSS and Free Culture business practices in general and at examples and case studies of specific corporations.</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="pick-one">
+                    <ul>
+                      <li>
+                        <h5>Software Development on Linux Systems</h5>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="electives">
+                    <ul>
+                      <li>
+                        <h5>Project in FOSS Development</h5>
+                      </li>
+                      <li>
+                        <h5 class="orange">Computer System Forensics</h5>
+                      </li>
+                      <li>
+                        <h5 class="orange">Foundations of Mobile Design</h5>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+                <section>
+                  <h4>College of Liberal Arts</h4>
+                  <div class="required-courses">
+                    <ul>
+                      <li>
+                        <h5>Free and Open Source Culture</h5>
+                        <p>Humanitarian Free and Open Source Software Development introduces students to processes, practices, tools and technologies of the FOSS community. It’s where they make their first contributions and work on their first projects. These projects generally require multidisciplinary teams, so students lacking strong programming skills can contribute.</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="pick-one">
+                    <ul>
+                      <li>
+                        <h5>Technical Writing</h5>
+                        <p>Depending on their individual abilities and interests, students will either take the Linux Systems course to learn about packaging, distribution, revision and community/contributor management or take Technical Writing as it’s a skill set contributor communities often lack.</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="electives">
+                    <ul>
+                      <li>
+                        <h5>Text &amp; Code</h5>
+                        <p>Text and Code explores innovative and evolving questions and practices of text and code in literature, linguistics, creative writing, geospatial mapping, locative and interactive media. Students use FOSS Tools to create Free Culture works.</p>
+                      </li>
+                      <li>
+                        <h5 class="orange">Introduction to Natural Language Processing</h5>
+                      </li>
+                      <li>
+                        <h5 class="orange">Language Technology</h5>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+              </div>
+            </section>
+            <footer id="minor-footer">
+              <p>Students must take one elective course from an approved list. Approved electives must use FOSS and/or FC tools or communities as part of the instructional model for the course.</p>
+              <p>Of particular note are the <span class="orange">orange courses</span>:</p>
+              <ul>
+                <li>The Liberal Arts "Language" courses are part of a collection of five in "Human Language Technology and Computational Linguistics” that use NLTK and other FOSS tools</li>
+                <li>The computing courses, Computer Systems Forensics and Foundations of Mobile Design which are advanced courses from other computing degree programs at RIT</li>
+              </ul>
+              <p>The rationale for including courses like these within the minor is that it allows the students to act as resources in those courses for other students and/or the faculty member to engage with if they want to participate in the existing community to squash bugs and/or fork the tool for new development within the course.</p>
+              <p>As the minor is offered over time, more of these types of courses from other disciplines around campus will be added to the list.</p>
+            </footer>
+          </div>
+        </div>
+        <footer id="footer">&nbsp;</footer>
+      </div>
+    </div><!-- footer and legalese -->
+    <div id="magic_footer">
+      <script type="text/javascript" src="../scripts/footer.js"></script>
+    </div>
+  </div>
+</body>
+<script src="js/libs/jquery.js"></script>
+<script src="js/main.js"></script></html>
