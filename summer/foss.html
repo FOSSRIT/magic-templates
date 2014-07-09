@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+<!-- viewport meta to reset iPhone inital scale -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta property="og:site_name" content="The RIT MAGIC Center" />
+<meta property="og:image" content="http://magic.rit.edu/theme_images/MAGIC_CENTER_LOGO.jpg" />
+<meta property="og:title" content="RIT MAGIC Center" />
+<meta property="og:url" content="http://magic.rit.edu/" />
+
+<title>RIT MAGIC Center Projects | FOSS @ MAGIC</title>
+
+<!-- css3-mediaqueries.js for IE8 or older -->
+<!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="../styles/magic.css" />
+<link rel="stylesheet" type="text/css" href="../styles/nav_menu.css" />
+<link rel="stylesheet" type="text/css" href="../styles/flippers.css" />
+
+<script type="text/javascript">
+    document.doRandomFlips = false;
+    
+    // this function determines whether the event is the equivalent of the microsoft
+    // mouseleave or mouseenter events.
+    function isMouseLeaveOrEnter(e, handler)
+    {       
+        var reltg = e.relatedTarget ? e.relatedTarget : e.type == 'mouseout' ? e.toElement : e.fromElement;
+        while (reltg && reltg != handler) reltg = reltg.parentNode;
+        return (reltg != handler);
+    }
+    //thans to http://www.dynamic-tools.net/toolbox/isMouseLeaveOrEnter/ for this function
+</script>
+<script src="../scripts/castle_creator.js" type="text/javascript"></script>
+<script type="text/javascript" src="../scripts/flipper.js"></script>
+<script type="text/javascript" src="../scripts/animator.js"></script>
+<script type="text/javascript" src="../scripts/particle_manager.js"></script>
+<script src="../scripts/mobile_menu.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<!-- RIT logo -->
+<div id="rit_logo"><a href="http://www.rit.edu/"><img src="../theme_images/rit_logo_bar.png" alt="RIT logo" style="border: 0px; width: 375px; height: 40px;" /></a></div>
+<div id="rit_logo_mobile"><a href="../main/index.html">
+  <img src="../theme_images/magic_logo_for_mobile.png" 
+       style="width: 110px; height: 40px; float: left; border: 0px;" 
+       alt="MAGIC logo"/></a>
+       
+       <div style="float: left; margin-top: 12px;"><h3>@</h3></div>
+       
+       
+       <a href="http://www.rit.edu/">
+  <img src="../theme_images/rit_logo_for_mobile.png" 
+       style="width: 102px; height: 40px; float: right;" 
+       alt="RIT logo"/></a>
+</div>
+
+<!-- RIT institute header, modded for mobile and small magic nav -->
+
+<div id="rit_header">
+    <div id="metanav">
+    <div id="mobile_nav_menu"><a class="nav_text" href="#" onclick="toggle_mobile_menu();"><img style="float: right; padding-left: 5px;" width="40" height="40"  alt="Mobile Navigation Menu" src="../theme_images/menu_bar_icon.png"/></a></div>
+        <div id="metanav_right"> 
+    <ul>
+      <li id="metaritdirectories">
+        <a href="http://www.rit.edu/directories/">Directories</a>
+      </li>
+    </ul>
+
+    <div id="metaritsearchdiv">
+      <form action="http://www.rit.edu/search/" id="metasearchform" method="get" name="metasearchform">
+        <div class="row collapse">
+          <div class="large-8 columns">
+            <input id="rit_input" maxlength="250" name="q" type="text" />
+          </div>
+
+          <div class="large-1 columns">
+            <em class="foundicon-search" id="rit_search_submit"></em>
+          </div>
+        </div>
+      </form>
+    </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- particle area and general hackery -->
+<canvas id="ParticleArea" class="particle_area" width="300" height="550"></canvas>
+<div id="ParticleAreaOld" class="particle_area" style="height: 550px; display: none;">
+        <div id="ParticleFade" style="position: absolute; height: 157px; width:100%; top: 393px; display: none; background-image:url(../theme_images/fade.png); background-repeat: repeat;">
+        </div>
+</div>
+
+<!-- background images (castle and custom artwork) -->
+<div id="background_images" style="width: 100%; height: 900px; overflow: hidden;">
+    <div id="castle" style="top: 51px; background: none; width: auto; 
+                            height: 550px; overflow: hidden;
+                            background-repeat: no-repeat;"><svg id="castle_svg_container">
+      </svg></div>
+
+    <div id="page_art" style="background-image: url(../theme_images/elf.png); 
+                            height: 800px; width: 482px; left: 107px; overflow: hidden;
+                            background-repeat: no-repeat;"></div>
+</div>
+
+<!-- main page containeer, allows things to extend all over the edges of things) -->
+<div id="pagewrap_abscontainer">
+
+<!-- aesthetic nav bar, real nav is in the main header -->
+<div id="nav_header"></div>
+
+<!-- actual page -->
+<div id="pagewrap">
+    <!-- navigation bar -->
+    <div id="header">
+      <script type="text/javascript" src="../scripts/nav_menu.js"></script>
+    </div>
+    
+    <div id="main_content_area">
+     
+     <div id="content">
+       <div class="full_row_clear" style="margin-bottom: 0px;">
+       <h3>Free &amp; Open Source Software @ MAGIC</h3>
+       </div> 
+       
+       <div class="full_row" style="min-height: 175px; margin-top: 10px;"><img src="../people/initiatives/foss_initiative.jpg" style="float: left; width: 20%; height: auto; min-width: 175px; margin-right: 10px;" alt="foss_logo_pic" /><h4>FOSS @ MAGIC</h4><p>One of the most unique initiatives at MAGIC is the FOSS@MAGIC effort, an initiative that originally grew out of the Department of Interactive Games and Media's course in educational game development for the OLPC. Today, FOSS@MAGIC sponsors numerous projects, hackathons, regional get-togethers, birds-of-a-feather gatherings, and events throughout the year in connection with the MAGIC Center, the School of Interactive Games &amp; Media, the B. Thomas Golisano College of Computing &amp; Information Sciences, and other elements of the campus that span the entire university, as well as numerous external partners. <a href="history.html">Since 2009</a>, this group has brought FOSS speakers to campus, sponsored professional development opportunities for faculty, housed externally sponsored and faculty and student created research and development projects and has brought an annual regional FOSS conference to the RIT campus on several occasions. Known throughout the region, this group is an active and vibrant part of the Rochester open source movement, and is engaged with a variety of institutions throughout the region and the nation.  
+<br/><br/>
+Specifically, FOSS @ RIT is an initiative to promote Free/Open Source Software related activities at RIT that:<br/></p>
+<ul>
+<li class="site_text">Pursues applied research in and around RIT and with sponsors and external entities</li>
+<li class="site_text">Supports Summer Undergraduate Research Fellowships</li>
+<li class="site_text">Develops and/or supports FOSS academic efforts including the Open Source Minor, project courses and independent studies</li>
+<li class="site_text">Coordinates and/or sponsors FOSS events like hackathons, speakers and POSSE</li>
+<li class="site_text">Offers students employment opportunities for part-time work and co-ops with projects that are released via open-source license</li>
+</ul>
+<br/>
+<p>The initiative <a href="history.html">grew out of</a> the <a href="http://igm.rit.edu" target="top">School of Interactive Games and Media</a>'s first seminar in educational game development for the One Laptop Per Child (OLPC) in 2008. Starting in 2009, student, faculty, staff and community interest across the institute and throughout Rochester have grown the initiative to sponsor...</p>
+<ul>
+<li class="site_text">50+ hackathons regional get-togethers, birds-of-a-feather gatherings</li>
+<li class="site_text">internationally renowned speakers such as Richard Stallman, Hal Abelson and Walter Bender</li>
+<li class="site_text">Professional development opportunities for faculty, staff and graduate students including three annual week-long instances of <A HREF="http://teachingopensource.org/index.php/POSSE" target="top">POSSE</A></li>
+<li class="site_text">Outreach to other Colleges and Universities, K-12 schools and community organizations like <a href="http://www.meetup.com/HackshackersROC/http://www.meetup.com/HackshackersROC/" target="top">Hacks/Hackers Rochester</a> and the <a href="http://opensource.com/education/11/5/games-life-girl-scouts-games-and-open-source-way" target="top">Girl Scouts</a></li>
+<li class="site_text">30+ Undergraduate Research Fellowships, Co-Ops and part-time student positions doing humanitarian project work including nation-building work with UNICEF’s Innovation Lab in Kosovo and Educational Games for OLPC and <a href="http://sugarlabs.org/" target="top">SugarLabs</a> downloaded around the world and honored at the White House.</li>
+<li class="site_text">Applied research projects for RIT, Red Hat, Mozilla Open Badges, OLPC and Sugar Labs</li>
+<li class="site_text">Civic Hacking events such as <a target="_blank" href="http://attroc.hackupstate.com">AT&T Rochester Civic App Challenge</a> and <a target="_blank" href="http://rhok.org">Random Hacks of Kindness</a></li>
+<li class="site_text">Additional academic courses for IGM, including the first <a href="minor.html" target="top">Minor in Open Source Software and Free Culture</a>, which will be offered beginning in Fall Semester of 2014 by IGM</li>
+
+</ul>
+</div>
+
+<div class="full_row_clear">
+<a href="hack_election_night.html"><img src="projects/electionnight_thumb.jpg" style="width: 30%; height: auto; float: right; margin-right: 1px;margin-left: 10px; margin-bottom: 15px; margin-top: 5px; border: solid #fff 1px;" alt="Hacking Election Night Link Image" class="glowhover2" /></a>
+<div class="mission_statement">
+<h3 style="text-align: right;">To see what</h3>
+<h1 style="text-align: right; font-size:36px;">FOSS @ MAGIC</h1>
+<h3 style="text-align: right;">is all about, here's a <a href="hack_election_night.html">sample activity</a> we engage with every year on election night.  This is the kind of hacking we're excited about.</h3>
+</div>
+</div>
+
+<div class="full_row">
+<h3>Get Involved</h3>
+<p>Join our <a href="http://en.wikipedia.org/wiki/Internet_Relay_Chat" target="top">IRC Channel</a> <b>#rit-foss</b> and <b>#rit-innovation</b> on irc.freenode.net. This is a great place to introduce yourself and get in contact with anyone involved in foss@magic.
+We have an IRC bot running under the name foss_bot which sits in and logs any channel we fell is important to the Foss project. You can also visit us on <a href="https://www.facebook.com/groups/125347547500706/" target="top">Facebook</a>, and connect with us through MAGIC.</p><br/>
+
+<h4>Key Programs and Departments Engaged in FOSS @ MAGIC</h4>
+<ul>
+  <li class="site_text"><b><a href="http://igm.rit.edu" target="top">School of Interactive Games &amp; Media</a></b>, Golisano College of Computing &amp; Information Sciences: The School of IGM is home to several courses and projects, as well as the <a href="minor.html">Minor in Open Source and Free Culture</a>, the first of its kind at any academic institution in the world.</li>
+</ul>
+
+<h4>Background and Need for Research</h4>
+<p>Support for Open Source methodologies and practices is in its early stages in higher education. Computing programs around the world use tools, develop code libraries, and share their work with others, but often publish in ways that are restrictive, non-collaborative or less 'open' than they might appear. Traditional academic publishing is a closed, and in some cases predatory, practice. The current commercial sector is dominated by players that produce closed-source solutions, but this is rapidly changing; with several major corporations now producing libraries and toolsets available through Open Source licenses. Open Source is now a growing strategic component of the software world, but that is only scratching the surface. While the methodologies and practices of the FOSS movement often seem a good match to the ethos of the university, <b>we feel universities must go further and provide direct educational and experiential opportunities for students to learn about Open Source processes and practices</b>. Only by directly engaging in work with these tools, practices, and communities will students effectively incorporate the benefits of the Open Source approach in their own work and contributions.<br/><br/> 
+
+Our work is humanitarian in focus and is generously supported by Red Hat and by Fedora (who donated the original 25 XO laptops that started us off for RIT's first FOSS class.) OLPC, Sugar Labs, and others have donated hardware and/or sponsored co-ops and Hackathons. Our funding is used largely to support Open Source student projects, library contributions, and development opportunities. In addition, such funding supports hackathons, outreach and engagement events with the local community and regional and national institutions. Our work engages students, faculty, and staff in exploring the possibilities as software becomes a freely available resource, both to draw from and contribute to. We're solving the world's problems through code. 
+
+</p>
+        </div>
+       
+       <div class="full_row_clear" style="margin-top: 20px;">
+       <h3>FOSS@MAGIC Projects</h3>
+       </div>
+       
+       <!-- blocku -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            <img src="projects/blocku.png" style="width: 100%; height: 100%;" alt="picture of project" />
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>Blocku</h4>
+            <p><b>Abstract:</b>Blocku is a puzzle game consisting of filling a grid with squares by matching the squares sides by following a constraint. Blocku is a game that can be used by teachers to teach a multitude of subjects to students. The teacher will be able to create a constraint such as match the formula to the answer or A + B = C. Then the teacher makes a list with two columns. Each row in the columns is a pair of of matching objects. The first row of column A matches the first row of column B. Using this formula the game will randomly assign the objects of each column to square blocks, one object per side. The student then has to put all the pieces in a grid so that pairs on the sides of the squares follow the constraint. The student will be able to move the pieces as well as rotate them.  Submitted by: fran.<br/><br/>
+            
+            <b>Links and References:</b></p>
+           <ul style="margin-bottom: 0px; padding-bottom: 0px;">
+            <li class="site_text"><a href="http://wiki.sugarlabs.org/go/Blocku" target="top">Blocku Wiki Page</a></li>
+            </ul>
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       <!-- end project -->
+       
+       <!-- civx -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            <img src="projects/civx.png" style="width: 100%; height: 100%;" alt="picture of project" />
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>CIVX</h4>
+            <p><b>Abstract:</b> CIVX is a open source public data aggregation framework that focuses on government transparency and transitioning raw data into open and index-able formats. Our core platform is designed to simplify the process of modeling, scraping, scrubbing, correlating, and visualizing raw data. 
+
+This tour is intended to point out the types of information that CIVX aggregates as well as the nuance of the interface, please feel free to contact us with any questions.  Submitted by: decause.<br/><br/>
+            
+            <b>Links and References:</b></p>
+           <ul style="margin-bottom: 0px; padding-bottom: 0px;">
+            <li class="site_text"><a href="http://foss.rit.edu/projects/civx/tour" target="top">CIVX walk through page</a></li>
+            <li class="site_text"><a href="http://www.rit.edu/news/story.php?id=47701" target="top">Project coverage at RIT News</a></li>
+            
+            </ul>
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       
+       <!-- fortune hunter -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            <img src="projects/fortune_hunter_logo.png" style="width: 100%; height: 100%;" alt="picture of project" />
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>Mathmematical Adventure: Fortune Hunter</h4>
+            <p><b>Abstract:</b>Mathematical Adventure: Fortune Hunter draws on teaching children of a global scale fourth grade mathematics through the guise of a dungeon styled adventure game. Players will be able to explore dungeons and fight fearsome battles with various monsters, each pertaining to a unique mathematical concept. The player controls a protagonist that must progress through maze-like dungeons, solve puzzles / problems, and defeat enemies in a two dimensional world. It is a single player adventure with room for ad hoc cooperative play in the future.  Submitted by: jlew.<br/><br/>
+            
+            <b>Links and References:</b></p>
+           <ul style="margin-bottom: 0px; padding-bottom: 0px;">
+            <li class="site_text"><a href="https://fedorahosted.org/fortune_hunter/" target="top">Fortune Hunter TRAC</a></li>
+            <li class="site_text"><a href="http://wiki.sugarlabs.org/go/Fortune_Hunter" target="top">Fortune Hunter Wiki</a></li>
+            <li class="site_text"><a href="http://activities.sugarlabs.org/en-US/sugar/addon/4272" target="top">Fortune Hunter Activity Page</a></li>
+            </ul>
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       
+       
+       <!-- FOSS RPG -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>FOSS Community RPG Research</h4>
+            <p><b>Abstract:</b>The goal of this project has been to research and plan a game which promotes and rewards FOSS (Free and Open Source Software) development. However, this goal is no easy task since game design alone provides intense challenges to providing a fun and balanced experience. Adding on FOSS development stats makes game design much harder, adding imbalance and other issues. On top of all of this, we have been going in alone, researching this new topic that has little prior research.<br/><br/>
+            
+            <b>Links and References:</b></p>
+           <ul style="margin-bottom: 0px; padding-bottom: 0px;">
+            <li class="site_text"><a href="https://github.com/FOSSRIT/surf-2012" target="top">GitHub Repository</a> which contains all of our research and design documents</li>
+            <li class="site_text">We meet Mondays through Thursdays in our FOSSBox from 12:00 to 6:00(EST). We will also be on IRC throughout this time.  #rit-foss on irc.freenode.net</li>
+            </ul>
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       
+       <!-- GS Games Workshop -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            <img src="projects/gs_gccis_rit.png" style="width: 100%; height: 100%;" alt="picture of project" />
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>Girl Scouts games for Life Workshop</h4>
+            <p><b>Abstract:</b>Since March, 2009, RIT’s Lab for Technological Literacy and faculty and students from the Game Design and Development degree programs currently housed in the School of Interactive Games and Media have led a one day workshop for Girl Scouts of America (GSA) troop members to complete their “Games for Life Interest Project.” (GFL) The workshop has been offered, in various forms, four times in Rochester, New York and once in Los Angeles, California.<br/><br/> 
+
+These materials have now been refined to the point where they can be released so that other Girl Scout Troops across the country can offer the workshop in their home communities. They can also be used for a general introduction to game design and development outside of the Girl Scouts. The current versions of the interactive tutorials are in Scratch, a multi-platform, open source tool that can be installed on Windows, Apple or Linux operating systems.<br/><br/></p>
+
+<h5>Workshop Organization</h5><p>
+The workshop begins with an introduction to the components of a game (i.e. it’s Formal Elements). The slide show attached discusses the roles of players, different types of game mechanics, win conditions, and other game components using examples of common board games to keep the concepts clear.  Next the scouts play some “casual” web games of different types, read reviews of those games from web sites, and discuss them in terms of the formal elements they just learned about. Games we have used are The Company of Myself, Red Remover and Learn To Fly.  After the play session, usually during lunch, the girls hear presentations from one or more professionals in the field about careers in the game industry.  After lunch the Scouts spend some time working on tutorials on building games in Scratch. They are provided with thumb drives with all the necessary files for the tutorials on them as well as installers and run-time versions of Scratch.
+
+<img src="projects/gs_games_montage.jpg" style="width: 100%; height: auto; padding-top: 10px; padding-bottom: 10px;" alt="montage of girl scout games" />
+It takes a village to give a workshop, and the group that has supported the workshop over the years is a sizeable one. Professor Jim Leone, Department Chair of RIT’s Department of Information Technology, sponsored the original workshop materials development in 2008. Microsoft Research funded the second round of materials development. The final round of materials development was sponsored by RIT’s Lab for Technological Literacy. RIT and The Rochester Association of Women in Computing sponsored Rochester workshop events. Our Rochester GSA coordinator was Laura Robinson, Program Manager, Girl Scouts of Western New York. The SIGGRAPH Los Angeles workshop was sponsored by ACM SIGGRAPH, Autodesk, Inc, and Intel Inc. Our GSA Co-Coordinator was Katherine Poulin-Kerstien, STEM Program Specialist, Girl Scouts of Greater Los Angeles. Materials for the various workshops were created and/or revised by Stephen Jacobs, Kelly Piering, Sela Davis, Heather Arbiter, Joe Pietruch, Yana Malysheva and Justin Lewis. All Rochester workshops have been coordinated by Amy Carey of AWC and Digital Rochester.
+<br/><br/>
+            
+            <b>Links and References:</b></p>
+           <ul style="margin-bottom: 0px; padding-bottom: 0px;">
+            <li class="site_text"><a href="files/scratch.zip" target="top">Scratch.zip</a> the Scratch Tutorials from the workshop.</li>
+            <li class="site_text"><a href="files/scratch.zip" target="top">GSFormalElements.odp</a></li>
+            <li class="site_text"><a href="files/scratch.zip" target="top">GSFormalElements.ppt</a></li>
+            </ul>
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       
+       
+        <!-- groovebot -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>Groove Bot</h4>
+            <p><b>Abstract:</b> Groove bot is a personal project of Justin Lewis that allows control of Grooveshark through IRC.<br/><br/>The project can be found in <a href="http://gitorious.org/jlew/groovebot" target="top">gitorious.org/jlew/groovebot</a>.  Submitted by: jlew.<br/><br/>
+            
+            
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       
+       <!-- lazorz -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            <img src="projects/lazorzs.png" style="width: 100%; height: 100%;" alt="picture of project" />
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>Lazorz</h4>
+            <p><b>Abstract:</b>Lazorz is an educational game targeting the middle school curriculum for the pysics of light. Our team will be submitting to the National STEM Video Game Challenge (link below). We'll be posting more information as we continue development. Stay Tuned!  Submitted by: decause.<br/><br/>
+            
+            <b>Links and References:</b></p>
+           <ul style="margin-bottom: 0px; padding-bottom: 0px;">
+            <li class="site_text"><a href="http://readthedocs.org/docs/ritfloss/en/latest" target="top">FLOSS Seminar in Interactive Games &amp; Media</a></li>
+            <li class="site_text">IRC Channel: #floss-seminar on irc.freenode.net</li>
+            <li class="site_text"><a href="http://github.com/decause/lazorz" target="top">Github Repository</a></li>
+            <li class="site_text"><a href="http://stemchallenge.org/" target="top">National STEM Video Game Challenge</a></li>
+            <li class="site_text"><a href="http://lazorz-fossrit.rhcloud.com/" target="top">Playable Prototype</a> on <a href="http://openshift.redhat.com/" target="top">Red Hat's Openshift Cloud Platform</a></li>
+            </ul>
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       
+       
+       <!-- lemonade stand -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            <img src="projects/lemonade.png" style="width: 100%; height: 100%;" alt="picture of project" />
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>Lemonade Stand</h4>
+            <p><b>Abstract:</b>his is your basic "Lemonade Stand" style game, where the player manages a lemonade stand (or similar such store) and tries to make as much money as possible. The game is designed to incorporate money and fractional math skills to teach basic operations.  Submitted by: Qalthos.<br/><br/>
+            
+            <b>Links and References:</b></p>
+           <ul style="margin-bottom: 0px; padding-bottom: 0px;">
+            <li class="site_text"><a href="http://wiki.sugarlabs.org/go/Lemonade_Stand" target="top">Wiki Page</a></li>
+            <li class="site_text"><a href="http://activities.sugarlabs.org/en-US/sugar/addon/4321/" target="top">Activity Page</a></li>
+            <li class="site_text"><a href="http://gitorious.org/lemonade-stand-olpc/lemonade-stand-olpc" target="top">Git Repo</a></li>
+            </ul>
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       
+       
+       <!-- media wiki vis -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            <img src="projects/media_wiki_vis.jpg" style="width: 100%; height: 100%;" alt="picture of project" />
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>MediaWiki Visualization</h4>
+            <p><b>Abstract:</b>MediaWiki Visualization is a python program that watches a wiki for changes using the MediaWiki API. It loads up a list of pages and their link structures and then watches the change log. When a page is changed it links the user to the page as well as linking to any pages it links to.<br/><br/>
+The visualization is currently using <a href="http://ubietylab.net/ubigraph/" target="top">ubigraph</a> to draw the visualization with the help of the networkx python module. It also uses the <a href="http://twistedmatrix.com/" target="top">twisted framework</a> to pull the api at a configurable interval.  Submitted by: jlew.<br/><br/>
+            
+            <b>Links and References:</b></p>
+           <ul style="margin-bottom: 0px; padding-bottom: 0px;">
+            <li class="site_text"><a href="http://www.youtube.com/watch?v=Sau6l9TOhgk" target="top">Example of MediaWiki Visualization</a></li>
+            <li class="site_text"><a href="http://gitorious.org/jlew/mediawiki_visualization" target="top">Source on gitorious.org</a></li>
+            <li class="site_text"><a href="http://blog.jlewopensource.com/search/label/Media%20Wiki%20Visualization" target="top">MediaWiki Visulaization Development Blog</a></li>
+            </ul>
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       
+       
+       <!-- narcissus -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            <img src="projects/narc.png" style="width: 100%; height: 100%;" alt="picture of project" />
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>narcissus</h4>
+            <p><b>Abstract:</b> narcissus is a web application for visualizing real-time webserver hits.  Submitted by: rjbpop.<br/><br/>
+            
+            <b>Links and References:</b></p>
+           <ul style="margin-bottom: 0px; padding-bottom: 0px;">
+            <li class="site_text"><a href="http://narcissus.rc.rit.edu/map#2.40/24.10/-344.67" target="top">Live Demo</a> watching <a href="http://mirror.rit.edu/" target="top">mirror.rit.edu</a></li>
+            <li class="site_text"><a href="https://github.com/ralphbean/narcissus/issues" target="top">Bug Tracker</a> on Github</li>
+            <li class="site_text"><a href="https://github.com/ralphbean/narcissus" target="top">Source Code</a> on GitHub</li>
+            <li class="site_text">IRC: #moksha on irc.freenode.net</li>
+            </ul>
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       
+       
+       <!-- Open Video Chat -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            <img src="projects/0vc.png" style="width: 100%; height: 100%;" alt="picture of project" />
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>Open Video Chat</h4>
+            <p><b>Abstract:</b> Open Video Chat is a Video Chat Activity for the XO Platform.  Developers sponsored by PEN International were tasked with developing a proof of concept by improving the underlying software stack to improve video chat accessibility for communication between deaf and hard of hearing students in a classroom environment. The project leaders at PEN have expressed a long-term interest in the life of this application that includes release into the Opensource ecosystem, and eventually porting to other platforms.<br/><br/>Team members for the project include Stephen Jacobs (RIT Faculty Advisor), 
+Remy DeCausemaker (RIT Project Lead - Storytelling, Evaluations, Mentor), 
+Justin Lewis    (RIT Dev Team - Lead),
+Taylor Rose Blog (Dev Team - Developer),
+Fran Rogers RIT  (Dev Team - Developer),
+Doney Oatman (RIT Mentor Team - ASL),
+Mel Chua (Fedora Mentor Team - Comm Arch, Evaluations),
+Luke Macken (Fedora Mentor Team - Technical, Evaluations), and
+Bernie Innocenti (SugarLabs  Mentor Team - Technical).<br/><br/>
+            
+            <b>Links and References:</b></p>
+           <ul style="margin-bottom: 0px; padding-bottom: 0px;">
+           <li class="site_text"><a href="http://foss.rit.edu/media/video/ovc" target="top">Video Logs</a></li> 
+            <li class="site_text"><a href="http://wiki.laptop.org/go/Video_Chat" target="top">VideoChatWiki</a> at Sugar Labs.</li>
+            <li class="site_text"><a href="https://fedorahosted.org/OpenVideoChat" target="top">VideoChat @ Fedora Hosted</a></li>
+            <li class="site_text"><a href="http://boingboing.net/2010/06/21/students-create-vide.html" target="top">Project Coverage at BoingBoing</a></li>
+            <li class="site_text"><a href="http://www.rit.edu/news/release.php?id=47681" target="top">Project Coverage at RIT News</a></li>
+            <li class="site_text"><a href="http://investors.redhat.com/releasedetail.cfm?ReleaseID=556499" target="top">Project Coverage at Red Hat</a></li>
+            </ul>
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       
+       
+        <!-- Wikiotics -->
+       <div style="margin-right: 10px; margin-left: 10px; background: rgba(255,255,255,0.1); min-height: 185px;">
+       <div class="fixed_left_column3" style="margin-left: 0px; margin-right: 0px; background: none;">
+            <img src="projects/wikiotics.jpg" style="width: 100%; height: 100%;" alt="picture of project" />
+       </div>
+       <div class="outer_right_column2" style="height: auto; margin-right: 0px; margin-left: 0px;">
+        <div class="inner_right_column3" style="height: auto; margin-left: 0px; background: none;" >
+            <h4>Wikiotics</h4>
+            <p><b>Abstract:</b> Wikiotics is a community site for collaborative language instruction. The site aims to provide easy tools for teachers and students to create high quality language lessons that are immersion focused, interactive, and easy to share. These activities are supported by the Wikiotics Foundation, an independent 501(c)3 non-profit. Starting in September 2010 two RIT students, Nate Case and Taylor Rose began contributing to the project through the FOSS@RIT movement.  Submitted by: trose.<br/><br/>
+            
+            <b>Links and References:</b></p>
+           <ul style="margin-bottom: 0px; padding-bottom: 0px;">
+           <li class="site_text"><a href="http://youtu.be/u4DLU_ywuwc" target="top">Project video [YouTube]</a></li>
+            <li class="site_text"><a href="http://www.rit.edu/news/story.php?id=47876" target="top">RIT News project coverage</a></li>
+            <li class="site_text"><a href="http://wikiotics.org/" target="top">Wikiotics.org</a></li>
+            </ul>
+        </div>
+       </div>
+       
+       </div>
+       <div style="clear:both;"></div>
+       
+       <div style="clear:both; margin-bottom: 20px;"></div>
+       
+     <!-- end content -->
+     </div>
+     <div id="sidebar">
+        <div class="full_row_clear" style="margin-top: 10px;">
+        <h3>Key Research Personnel</h3>
+        </div>
+       
+       <div class="full_row" style="height: auto; width: auto; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; margin-top: 0px;">
+        <img src="../people/affiliates/stephen_jacobs.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_right"><h5>Stephen Jacobs</h5><p style="font-size: 10px;">Associate Director<br/> RIT MAGIC Center<br/>Professor, School of Interactive Games &amp; Media, GCCIS<br/>Visiting Scholar, National Center for the History of Electronic Games</p></div><div style="clear: both;"></div>
+        </div>
+       
+       <div class="full_row" style="height: auto; width: auto; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; margin-top: 0px;">
+       <img src="../people/affiliates/remy_decausemaker.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Remy DeCausemaker</h5><p style="font-size: 10px;">Open Source Research Coordinator &amp; MAGIC FOSS Evangelist<br/> RIT MAGIC Center</p>
+       </div><div style="clear: both;"></div></div>
+       
+       <div class="full_row_clear" style="margin-top: 10px;">
+        <h3>Special Thanks &amp; Recognition</h3>
+        </div>
+       
+      <div class="full_row" style="height: auto; width: auto; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; margin-top: 0px;">
+       <img src="../people/partners/red_hat.jpg" alt="profile_pic" class="thumbnail" /><div class="thumbtile_left"><h5>Red Hat, Inc.</h5><p style="font-size: 10px;">The FOSS@MAGIC initiative, and our work in both curricular development and events and engagement opportunities for FOSS education, would not be possible without the generous support of Red Hat, Inc.<br/></p>
+       </div><div style="clear: both;"></div></div>
+       
+       <div class="full_row_clear" style="margin-top: 10px;">
+        <h3>Partners &amp; Collaborators</h3>
+        </div>
+       <div class="full_row"><p>In addition to the <a href="../people/index.html">partners of the MAGIC Center</a> that the FOSS@MAGIC initiative draws upon as a part of its work, the initiative also works with several partners that are distinctive to the particular focus of our work in free and open source software:</p><br/>
+       <h4><a href="http://barcamproc.org" target="top">BarcampROC</a></h4><p>In the spirit of FooCamp, BarCamp is an ad-hoc gathering born from the desire for people to share and learn in an open environment. It is an intense event with discussions, demos, and interaction from attendees. All attendees must give a demo, a session, or help with one. All presentations are scheduled the day they happen. Prepare in advance, but come early to get a slot on the wall. Presenters are responsible for making sure that notes/slides/audio/video of their presentations are published on the web for the benefit of all and those who can't be present. Anyone with something to contribute or with the desire to learn is welcome and invited to join. Venture over to the BarcampRochester tag on Flickr for photos from the previous three events!</p><br/>
+       
+        <h4><a href="http://csh.rit.edu" target="top">Computer Science House (CSH)</a></h4><p>Computer Science House, founded in 1976, is one of the oldest and most popular Special Interest Houses at the Rochester Institute of Technology in Rochester, NY. Located on the third floor of the dormitory Nathaniel Rochester Hall, CSH provides a revolutionary living environment for over fifty students and many members who live off-floor.<br/><br/>
+
+In addition to RIT's standard residence hall facilities, CSH has nine, unique multi-purpose rooms, which have been filled with technical and material resources for the exclusive use of members 24/7. CSH's computing resources include e-mail, newsgroup, database and web space services, a floor-wide network, and a multitude of servers and workstations–all maintained and operated by members. Hands-on learning is emphasized in order to give members a significant advantage in the business world.
+</p><br/>
+       
+       <h4><a href="http://fedoraproject.org" target="top">Fedora</a></h4><p>Fedora is a Linux-based operating system that showcases the latest in free and open source software. Fedora is always free for anyone to use, modify, and distribute. It is built by people across the globe who work together as a community: the Fedora Project. The Fedora Project is open and anyone is welcome to join.
+</p><br/>
+       
+       
+           <h4><a href="http://interlockroc.org" target="top">InterlockROC</a></h4><p>Welcome to Interlock Rochester; the first and only hackerspace in Rochester, NY. Our goal is to provide members with a place to share, learn, and develop their ideas in a community environment. Members have access to our space 24/7 and can use it to store their projects, hold meetings, attend classes, or just hang out with other people doing extremely interesting stuff.<br/><br/>
+
+Interlock Rochester is an incorporated Not For Profit organization working to obtain official status as a 501(c)(3) Federal Tax Exempt organization. We started in October of 2009 by people who saw the need to find a place where they could develop their ideas together and Rochester was able to offer the right kind of locations and the right type of people to fill it. The group was officially incorporated on December 1, 2009 and has begun the long process of becoming a Federally recognized tax excempt organization.
+</p><br/>
+       
+       <h4><a href="http://wiki.laptop.org" target="top">OLPC</a></h4><p>The One Laptop per Child non-profit develops a low-cost laptop—the "XO Laptop"—to revolutionize how we educate the world's children. Our mission is to provide educational opportunities for the world's poorest children by giving each child a rugged, low-cost, low-power, connected laptop; and software tools and content designed for collaborative, joyful, self-empowered learning.
+</p><br/>
+
+ <h4><a href="http://wiki.laptop.org/go/OLPCorps_Africa_Rochester_Institute_Of_Technology_Uganda" target="top">OLPCorps Africa</a></h4><p>The Rochester Institute of Technology (RIT) team will be running an OLPC workshop at Kiira Primary School in Jinja, a rural district in Eastern Uganda. The nine week workshop from June 22 to August 21, 2009 (during the school’s second term), will be targeted towards the entire 6th grade stream (129 students, ages 10-12). The all speak English. RIT Team Members (all RIT students):<br/><br/>
+
+Deana Brown: M.S. in Information Technology graduate student, currently abroad completing her thesis at the University of Cape Town, in the area of Information and Communication Technologies for Development (ICT4D). She holds a Bachelor in Computer Science – Mathematics and Spanish and will serve at the team lead.<br/><br/>
+
+Ihudiya Ogburu: B.S. in Information Technology senior undergraduate student specializing in web design and application development programming. Past technology instructor at Internal Drive Camps. She will serve as the programming coordinator.<br/><br/>
+
+ Renee Baltimore: M.S. in Computer Science graduate student specializing in Artificial Intelligence. She has worked three years as a software developer and lead software engineer at Networking Systems Solutions. She holds a B.S. in Computer Science with Electronics and will serve as the technical lead.
+</p><br/>
+
+
+ <h4><a href="http://www.pen.ntid.rit.edu/welcome.php" target="top">PEN</a></h4><p>The Postsecondary Education Network-International (PEN-International), a multinational partnership of colleges and universities worldwide, was created in 2001 through grants funded by The Nippon Foundation of Japan. Its goal is to improve and expand postsecondary education for deaf and hard-of-hearing students around the world by sharing educational technology and conducting faculty development and training, particularly in developing countries.
+</p><br/>
+
+ <h4><a href="http://wiki.sugarlabs.org/go/Welcome_to_the_Sugar_Labs_wiki" target="top">Sugar Labs</a></h4><p>The mission of Sugar Labs® is to produce, distribute, and support the use of the Sugar learning platform; it is a support base and gathering place for the community of educators and developers to create, extend, teach, and learn with the Sugar learning platform.  Sugar is based on the following principles: (1) everyone is a teacher and a learner; (2) humans by their nature are social beings; (3) humans by their nature are expressive; (4) you learn through doing; and (5) love is a better master than duty.
+</p><br/>
+<!-- end partners -->
+</div> 
+       
+       
+       <div class="full_row_clear" style="margin-top: 20px;"><h3>Related Publications</h3></div>
+       <div class="full_row">
+       <h5>Undergraduate Research Symposium Projects, Presentations &amp; Downloads</h5>
+       <ul>
+       <li class="site_text"><a href="files/OVCPaper.pdf" target="top">Open Video Chat</a></li>
+       <li class="site_text"><a href="files/Open_Video_Chat_Presentation.pdf" target="top">Open Video Chat Presentation</a></li>
+       <li class="site_text"><a href="files/GameEnginePaper.pdf" target="top">Fortune Hunter Engine Paper</a></li>
+       <li class="site_text"><a href="files/Game_and_Art_Engine.pdf" target="top">Fortune Hunter Game &amp; Animation Engine Presentation</a></li>
+       </ul>
+       
+       <h5>Additional Papers &amp; Presentations</h5>
+       <ul>
+       <li class="site_text"><a href="http://teachingopensource.org/index.php/TOSS09" target="top">Round Table on curriculum</a> at Teaching Open Source Summit</li>
+       <li class="site_text"><a href="http://www.hfoss.org/hfoss2010/?q=node/10" target="top">HFOSS Symposium Round Table</a></li>
+       <li class="site_text"><a href="files/Open_Source_Software_Research_Mini_Summit.pdf" target="top">Open Source Software Mini-Summit</a></li>
+       <li class="site_text"><a href="http://www.youtube.com/watch?v=fZxI2ZqSyrA&amp;feature=youtu.be" target="top">RemyD at TEDx Buffalo</a></li>
+       <li class="site_text"><a href="files/connectology.ppt" target="top">Connectology 2011</a></li>
+       <li class="site_text"><a href="files/CIVX_Capitol_Camp_2010.odp" target="top">CIVX CapitolCamp 2011</a></li>
+       <li class="site_text"><a href="files/wlny11_0.pdf" target="top">CIVX WeLiveNY Summit</a></li>
+       </ul>
+       
+       </div>
+    <!-- end sidebar -->
+     </div>
+    
+     <div id="footer">
+      &nbsp;
+     </div>
+    </div>
+</div>
+
+  <!-- footer and legalese -->
+<div id="magic_footer">
+    <script type="text/javascript" src="../scripts/footer.js"></script>
+</div>
+</div>
+
+</body>
+</html>
+
