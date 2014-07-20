@@ -3,67 +3,62 @@
 @import "../pieces/mixins";
 
 $orange: rgb(242, 99, 34);
+
 .orange { color: $orange; }
+.flex {
+	@include mq(netbook) {
+		@include flexbox();
+		div {
+			@include flex(1);
+			&:first-child {padding-right:1rem;}
+			&:last-child {padding-left:1rem;}
+		}
+	}
+}
+
 #minor-announcement {
 	padding: 0.75rem;
 	margin-bottom: 1rem;
-	hgroup {
-		h2 { 
-			font-size: 2.25rem;
-			padding-right: 1rem;
-			margin-bottom: 1rem;
-		}
-		h3 {
-			font-size: 1.25rem;
-			font-style: italic;
-			margin-bottom: 1rem;
-		}
-	}
+}
+#minor-header h2 {
+	font-size: 2.25rem;
+	padding-right: 1rem;
+	margin-bottom: 1rem;
 }
 #minor-leadin {
 	font-size: 1.125rem !important;
-	margin-bottom: 1.75rem !important;
+	margin-bottom: 3.5rem !important;
+}
+#minor-footer {
+	margin-bottom: 6rem;
 }
 
-#courses {
-	h3 {
-		font-size: 0.875rem;
-		text-transform: uppercase;
-		margin-bottom: 1.5rem;
+.t2 {
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid;
+	margin-bottom: 1.5rem;
+}
+.t3 {
+	color: $orange;
+	border-left: 4px solid $orange;
+	padding-left: 0.5rem;
+	@include mq(netbook) {
+		padding-left: 1rem;	
 	}
-	h4 {
-		font-size: 1.5rem;
-		padding-bottom: 0.5rem;
-		border-bottom: 1px solid $white;
-		margin-bottom: 0.75rem;
-		min-height: 3rem;
-	}
-	h5 {
-		line-height: 1.3;
-		font-size: 1rem;
-		margin-bottom: 0.75rem;
-	}
-	.flex {
-		@include mq(netbook) {
-			@include flexbox();
-			section {
-				@include flex(1);
-				&:first-child {padding-right:1rem;}
-				&:last-child {padding-left:1rem;}
-			}
-		}
-	}
-	ul {
-		margin: 0;
-	}
+	line-height: 1.3;
+	font-size: 1rem;
+	margin-bottom: 0.75rem;	
+}
+.minor-list {
+	margin: 0 0 4rem;
+	padding: 0;
 	li {
 		list-style: none;
-		margin-bottom: 1.5rem;
+		margin-bottom: 2.25rem !important;
 	}
 }
 
-#minor-footer {
-	li {
-		max-width: 35rem;
-	}
+.electives-list {
+	color: $orange;
 }
+
